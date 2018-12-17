@@ -3,46 +3,53 @@
   <header>
     <title>Color Gradient Project</title>
     <link rel="stylesheet" href="./css/reset.css">
-    <link rel="styleshet" href="./css/home.css">
+    <link rel="stylesheet" href="./css/home.css">
   </header>
 
   <body>
-    <h1>LOGO/Title</h1>
-    <!-- Add class="steps" -->
-    <section>    
-      <ul>
-        <li>Step 1:</li>
-        <p>Click the left Color 1 box, select a  color in the color picker box, and click again to select your starting color.</p>
-        <li>Step 2:</li>
-        <p>Enter the number of segments to generate.</p>
-        <li>Step 3:</li>
-        <p>Click the right Color 2 box, select a color in the color picker box, and click again to select your ending color. </p>
-      </ul>
-    </section>
+    <header>
+        <h1>LOGO/Title</h1>
+        <!-- Add class="steps" -->
+    </header>
 
     <section>
       <form id="color-input-form">
         <fieldset>
+          <section class="steps">
+              <h2>Step 1:</h2>
+              <p>Click the box, select a color in the color picker box, and click again to select your starting color.</p>
 
-          <label for="color1">Color 1</label>
-          <input id="color1" text="color" name="gradientcolor1" required/>
+              <label for="color1"></label>
+              <input type="color" id="color1" text="color" name="gradientcolor1" value="#ff0000" required/>
+          </section>
 
-          <label for="segmentcount">Number of Segments</label>
-          <input id="segmentcount" text="number" name="gradientnumberofsegments" required/>
+          <section class="steps">
+            <h2>Step 2:</h2>
+            <p>Enter the number of segments to generate.</p> 
+          
+            <label for="segmentcount"></label>
+            <input id="segmentcount" text="number" name="gradientnumberofsegments" size="10" required/>
+          </section>
 
-          <label for="color2">Color 2</label>
-          <input id="color2" text="color" name="gradientcolor2" required/>
+          <section class="steps">
+            <h3>Step 3:</h3>
+            <p>Click the box, select a color in the color picker box, and click again to select your ending color.</p>
 
-          <button class="round">SAVE</button>
+            <label for="color2"></label>
+            <input type="color" id="color2" text="color" name="gradientcolor2" value="#0000ff" required/>
+          </section>
 
+          <section>
+            <button class="round">SAVE</button>
+          </section>
         </fieldset>
       </form>
 
       <table id="gradient-table"></table>
     </section>
     
-    <section>
-      <a href="#gradient-chart">View the bar chart</a>
+    <section class="chart-link">
+      <a href="#gradient-chart"><span>View the bar chart</span></a>
     </section>
 
     <canvas id="gradient-chart"></canvas>
