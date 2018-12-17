@@ -12,7 +12,8 @@ var redArray = [];
 var greenArray = [];
 var blueArray = [];
 
-var userArray = [];
+var userArrayRGB = [];
+var userArrayHex = [];
 
 var colorOne = '#ff0000';
 var colorTwo = '#567d46';
@@ -135,58 +136,37 @@ rgbArrayPush();
 
 // floor values in rgbArray so they render correctly.
 
-
-// generate user array
-
-function generateUserArray() {
-  for (var i = 0; i < segments; i++) {
-    userArray.push(`rgb(${redArray[i]},${greenArray[i]},${blueArray[i]})`);
+function floorRGB(colorArray) {
+  for (var i = 0; i < colorArray.length; i++) {
+    colorArray[i] = Math.floor( colorArray[i]);
   }
 }
 
-generateUserArray();
+floorRGB(redArray);
+floorRGB(greenArray);
+floorRGB(blueArray);
 
 
-// function convertToHex(decimal) {
-//   var resultOne      = Math.floor(decimal / 16);
-//   var remainderOne   = decimal % 16;
-//   var resultTwo      = Math.floor(resultOne / 16);
-//   var remainderTwo   = resultOne % 16;
-//   var resultThree    = Math.floor(resultTwo / 16);
-//   var remainderThree = resultTwo % 16;
-//   var resultFour     = Math.floor(resultThree / 16);
-//   var remainderFour  = resultThree % 16;
-//   var resultFive     = Math.floor(resultFour / 16);
-//   var remainderFive  = resultFour % 16;
-//   var remainderSix   = resultFive % 16;
+// generate user array
 
-//   var one   = hexArray[remainderSix];
-//   var two   = hexArray[remainderFive];
-//   var three = hexArray[remainderFour];
-//   var four  = hexArray[remainderThree];
-//   var five  = hexArray[remainderTwo];
-//   var six   = hexArray[remainderOne];
+function generateuserArrayRGB() {
+  for (var i = 0; i < segments; i++) {
+    userArrayRGB.push(`rgb(${redArray[i]},${greenArray[i]},${blueArray[i]})`);
+  }
+}
 
-//   return `#${one}${two}${three}${four}${five}${six}`;
-// }
+generateuserArrayRGB();
 
-// convertToHex(14614367);
+// convert RGB back to Hex
 
+function convertToHex() {
+  for (var i = 0; i < redArray.length; i++) {
+    var RGB = redArray[i];
+    var one = Math.floor( RGB / 16 );
+    var two = RGB % 16;
+    var hex = hexArray[one]hexArray[]
+    console.log(one, two);
+  }
+}
 
-// function to take in beginning and ending hex values and calculate the difference between the two
-// function spacing() {
-//   var number1 = convertToDecimal(colorOne);
-//   var number2 = convertToDecimal(colorTwo);
-//   var difference = Math.abs(number1 - number2);
-//   var result = difference / segments;
-//   var floored = Math.floor(result);
-//   console.log('This is the spacing:', floored);
-//   return floored;
-// }
-
-// spacing();
-
-// // generate array of hex values - DOES NOT FUNCTION PROPERLY
-
-// generateUserArray();
-
+convertToHex();
