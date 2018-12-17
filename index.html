@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <header>
+    <title>Color Gradient Project</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="styleshet" href="./css/home.css">
+  </header>
+
+  <body>
+    <h1>LOGO/Title</h1>
+    <!-- Add class="steps" -->
+    <section>    
+      <ul>
+        <li>Step 1:</li>
+        <p>Click the left Color 1 box, select a  color in the color picker box, and click again to select your starting color.</p>
+        <li>Step 2:</li>
+        <p>Enter the number of segments to generate.</p>
+        <li>Step 3:</li>
+        <p>Click the right Color 2 box, select a color in the color picker box, and click again to select your ending color. </p>
+      </ul>
+    </section>
+
+    <section>
+      <form id="color-input-form">
+        <fieldset>
+
+          <label for="color1">Color 1</label>
+          <input id="color1" text="color" name="gradientcolor1" required/>
+
+          <label for="segmentcount">Number of Segments</label>
+          <input id="segmentcount" text="number" name="gradientnumberofsegments" required/>
+
+          <label for="color2">Color 2</label>
+          <input id="color2" text="color" name="gradientcolor2" required/>
+
+          <button class="round">SAVE</button>
+
+        </fieldset>
+      </form>
+
+      <table id="gradient-table"></table>
+    </section>
+    
+    <section>
+      <a href="#gradient-chart">View the bar chart</a>
+    </section>
+
+    <canvas id="gradient-chart"></canvas>
+    <script src="./js/indexapp.js"></script>
+  </body>
+</html>
