@@ -8,17 +8,21 @@ var differenceArray = [];
 
 var incrementArray = [];
 
-var redArray = [];
-var greenArray = [];
-var blueArray = [];
-
+var redArrayRGB = [];
+var greenArrayRGB = [];
+var blueArrayRGB = [];
 var userArrayRGB = [];
+
+var redArrayHex = [];
+var greenArrayHex = [];
+var blueArrayHex = [];
 var userArrayHex = [];
 
 var colorOne = '#ff0000';
 var colorTwo = '#567d46';
-var segments = 5;
+var segments = 25;
 
+// convert the hex code to RGB
 
 function convertToRGB(hexcode) {
   var one   = hexcode.charAt(1);
@@ -48,7 +52,6 @@ bothColors.push(convertToRGB(colorOne));
 bothColors.push(convertToRGB(colorTwo));
 
 
-
 // function to measure distance between 2 RGB values
 
 function differences(arrayOfArrays) {
@@ -66,6 +69,7 @@ function differences(arrayOfArrays) {
 
 differences(bothColors);
 
+
 // grab difference numbers and divide by segments
 
 function spacing() {
@@ -77,6 +81,7 @@ function spacing() {
 }
 
 spacing();
+
 
 // add numbers to red, green, and blue arrays
 
@@ -93,9 +98,9 @@ function rgbArrayPush() {
   var greenSpacing = incrementArray[1];
   var blueSpacing = incrementArray[2];
 
-  redArray.push(redFirst);
-  greenArray.push(greenFirst);
-  blueArray.push(blueFirst);
+  redArrayRGB.push(redFirst);
+  greenArrayRGB.push(greenFirst);
+  blueArrayRGB.push(blueFirst);
 
   var nextRed = redFirst;
   var nextGreen = greenFirst;
@@ -121,14 +126,14 @@ function rgbArrayPush() {
     }
 
 
-    redArray.push(nextRed);
-    greenArray.push(nextGreen);
-    blueArray.push(nextBlue);
+    redArrayRGB.push(nextRed);
+    greenArrayRGB.push(nextGreen);
+    blueArrayRGB.push(nextBlue);
   }
 
-  redArray.push(redLast);
-  greenArray.push(greenLast);
-  blueArray.push(blueLast);
+  redArrayRGB.push(redLast);
+  greenArrayRGB.push(greenLast);
+  blueArrayRGB.push(blueLast);
 }
 
 rgbArrayPush();
@@ -142,31 +147,55 @@ function floorRGB(colorArray) {
   }
 }
 
-floorRGB(redArray);
-floorRGB(greenArray);
-floorRGB(blueArray);
+floorRGB(redArrayRGB);
+floorRGB(greenArrayRGB);
+floorRGB(blueArrayRGB);
 
 
 // generate user array
 
 function generateuserArrayRGB() {
   for (var i = 0; i < segments; i++) {
-    userArrayRGB.push(`rgb(${redArray[i]},${greenArray[i]},${blueArray[i]})`);
+    userArrayRGB.push(`rgb(${redArrayRGB[i]},${greenArrayRGB[i]},${blueArrayRGB[i]})`);
   }
 }
 
 generateuserArrayRGB();
 
+
 // convert RGB back to Hex
 
 function convertToHex() {
-  for (var i = 0; i < redArray.length; i++) {
-    var RGB = redArray[i];
+  for (var i = 0; i < redArrayRGB.length; i++) {
+    var RGB = redArrayRGB[i];
     var one = Math.floor( RGB / 16 );
     var two = RGB % 16;
-    var hex = hexArray[one]hexArray[]
-    console.log(one, two);
+    var hex = `${hexArray[one]}${hexArray[two]}`;
+    redArrayHex.push(hex);
+  }
+  for (i = 0; i < greenArrayRGB.length; i++) {
+    RGB = greenArrayRGB[i];
+    one = Math.floor( RGB / 16 );
+    two = RGB % 16;
+    hex = `${hexArray[one]}${hexArray[two]}`;
+    greenArrayHex.push(hex);
+  }
+  for (i = 0; i < blueArrayRGB.length; i++) {
+    RGB = blueArrayRGB[i];
+    one = Math.floor( RGB / 16 );
+    two = RGB % 16;
+    hex = `${hexArray[one]}${hexArray[two]}`;
+    blueArrayHex.push(hex);
+  }
+  for (i = 0; i < userArrayRGB.length; i++) {
+    var hexRed = redArrayHex[i].toUpperCase();
+    var hexGreen = greenArrayHex[i].toUpperCase();
+    var hexBlue = blueArrayHex[i].toUpperCase();
+    // console.log(hexRed,hexGreen,hexBlue);
+    userArrayHex.push(`#${hexRed}${hexGreen}${hexBlue}`);
   }
 }
 
 convertToHex();
+
+
