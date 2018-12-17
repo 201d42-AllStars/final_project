@@ -22,6 +22,19 @@ var colorOne = '#ff0000';
 var colorTwo = '#567d46';
 var segments = 25;
 
+
+// constructor function for user gradient array
+
+function Gradient(hex1, segments, hex2) {
+  this.left = hex1;
+  this.right = hex2;
+  this.segments = segments;
+  this.userArrayRGB = [];
+  this.userArrayHex = [];
+}
+
+var defaultGradient = new Gradient('#ff0000', 20, '#567d46');
+
 // convert the hex code to RGB
 
 function convertToRGB(hexcode) {
@@ -197,5 +210,53 @@ function convertToHex() {
 }
 
 convertToHex();
+
+
+// create chart for user input
+
+function displayChart() {
+
+  // if (Images.resultsChart) Images.resultsChart.destroy();
+
+  var resultsChart = new Chart(Images.chart, {
+    type: 'doughnut',
+    data: {
+      labels: Images.allNames,
+      datasets: [{
+        label: 'Votes Per Image',
+        data: Images.allVotes,
+        backgroundColor: ['rgb(255,204,204)', 'rgb(255,229,204)', 'rgb(255,255,204)', 'rgb(229,255,204)', 'rgb(204,255,204)', 'rgb(204,255,229)', 'rgb(204,255,255)', 'rgb(204,229,255)', 'rgb(204,204,255)', 'rgb(229,204,255)', 'rgb(255,204,255)', 'rgb(255,204,229)', 'rgb(255,102,102)', 'rgb(255,178,102)', 'rgb(255,255,102)', 'rgb(178,255,102)', 'rgb(102,255,255)', 'rgb(102,178,255)', 'rgb(178,102,255)', 'rgb(255,102,255)']
+      }],
+    },
+    options: {
+      legend: {
+        position: 'top',
+        labels: {
+          fontFamily: "'Nova Mono', monospace",
+          fontSize: 10,
+
+        },
+      },
+      scales: {
+        yAxes: [{
+          gridLines: {
+            display: false,
+          },
+          ticks: {
+            display: false,
+          }
+        }],
+        xAxes: [{
+          gridLines: {
+            display: false,
+          },
+          ticks: {
+            display: false,
+          }
+        }]
+      }
+    }
+  });
+};
 
 
