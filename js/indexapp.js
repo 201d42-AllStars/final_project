@@ -1,6 +1,9 @@
 'use-strict';
 
 var hexArray = ['0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f'];
+var chart = document.getElementById('results-chart');
+Gradient.data = [];
+
 
 var bothColors = [];
 
@@ -211,6 +214,23 @@ function convertToHex() {
 
 convertToHex();
 
+// generate random number
+
+ function randomNum() {
+  var random = Math.random() * 25;
+  var randomRoundedDown = Math.floor(random);
+  return randomRoundedDown;
+};
+
+// create array of random numbers for data of sample chart
+
+function randomData() {
+  for (var i = 0; i < userArrayHex.length; i++) {
+    Gradient.data.push(randomNum);
+  }
+}
+
+randomData();
 
 // create chart for user input
 
@@ -218,14 +238,14 @@ function displayChart() {
 
   // if (Images.resultsChart) Images.resultsChart.destroy();
 
-  var resultsChart = new Chart(Images.chart, {
-    type: 'doughnut',
+  new Chart(chart, {
+    type: 'bar',
     data: {
-      labels: Images.allNames,
+      labels: userArrayHex,
       datasets: [{
-        label: 'Votes Per Image',
-        data: Images.allVotes,
-        backgroundColor: ['rgb(255,204,204)', 'rgb(255,229,204)', 'rgb(255,255,204)', 'rgb(229,255,204)', 'rgb(204,255,204)', 'rgb(204,255,229)', 'rgb(204,255,255)', 'rgb(204,229,255)', 'rgb(204,204,255)', 'rgb(229,204,255)', 'rgb(255,204,255)', 'rgb(255,204,229)', 'rgb(255,102,102)', 'rgb(255,178,102)', 'rgb(255,255,102)', 'rgb(178,255,102)', 'rgb(102,255,255)', 'rgb(102,178,255)', 'rgb(178,102,255)', 'rgb(255,102,255)']
+        label: '',
+        data: Gradient.data,
+        backgroundColor: userArrayHex
       }],
     },
     options: {
@@ -240,23 +260,25 @@ function displayChart() {
       scales: {
         yAxes: [{
           gridLines: {
-            display: false,
+            // display: false,
           },
           ticks: {
-            display: false,
+            // display: false,
           }
         }],
         xAxes: [{
           gridLines: {
-            display: false,
+            // display: false,
           },
           ticks: {
-            display: false,
+            // display: false,
           }
         }]
       }
     }
   });
-};
+}
+
+displayChart();
 
 
