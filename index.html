@@ -16,11 +16,11 @@
       <form id="color-input-form">
         <fieldset>
           <section class="steps">
-              <h2>Step 1:</h2>
-              <p>Click the box, select a color in the color picker box, and click again to select your starting color.</p>
+            <h2>Step 1:</h2>
+            <p>Click the box, select a color in the color picker box, and click again to select your starting color.</p>
 
-              <label for="color1"></label>
-              <input type="color" id="color1" text="color" name="gradientcolor1" value="#ff0000" required/>
+            <label for="color1"></label>
+            <input id="color1" type="color"  name="gradientcolor1" value="#ff0000" required/>
           </section>
 
           <section class="steps">
@@ -28,15 +28,15 @@
             <p>Enter the number of segments to generate.</p> 
           
             <label for="segmentcount"></label>
-            <input id="segmentcount" text="number" name="gradientnumberofsegments" size="10" required/>
+            <input id="segmentcount" type="number" name="gradientnumberofsegments" min="1" max="25" required/>
           </section>
 
           <section class="steps">
-            <h3>Step 3:</h3>
+            <h2>Step 3:</h2>
             <p>Click the box, select a color in the color picker box, and click again to select your ending color.</p>
 
             <label for="color2"></label>
-            <input type="color" id="color2" text="color" name="gradientcolor2" value="#0000ff" required/>
+            <input id="color2" type="color"   name="gradientcolor2" value="#0000ff" required/>
           </section>
 
           <section>
@@ -44,15 +44,16 @@
           </section>
         </fieldset>
       </form>
-
-      <table id="gradient-table"></table>
     </section>
+
+    <table id="gradient-table"></table>
     
     <section class="chart-link">
       <a href="#gradient-chart"><span>View the bar chart</span></a>
     </section>
 
     <canvas id="gradient-chart"></canvas>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
     <script src="./js/indexapp.js"></script>
   </body>
 </html>

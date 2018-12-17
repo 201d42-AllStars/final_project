@@ -1,5 +1,6 @@
 body {
   background-color: #343434;
+  text-align: center;
 }
 h1 {
   color: white;
@@ -7,14 +8,14 @@ h1 {
   text-align: center;
   margin-bottom: 50px;
 }
-#color-input-form {
+h2 {
+  font-size: 25px;
+}
+/* #color-input-form {
+  overflow: auto;
+  display: block;
   margin: 0 auto;
-  /* margin-top: 20px; */
-}
-#instructions {
-  /* margin-top: 20px; */
-  float: left;
-}
+} */
 .steps {
   color: white;
   display: inline-block;
@@ -35,12 +36,23 @@ p {
   margin-top: 10px;
   margin-bottom: 10px;
 }
+#segmentcount {
+  margin-top: 35px;
+  width: 50px;
+}
 .chart-link {
-  margin-top: 10px;
+  margin-top: 30px;
 }
 span {
   color: yellow;
+  font-size: 20px;
 }
-form {
-  margin: 0 auto;
+button {
+  margin-top: 20px;
+  background-color: gray;
+  font-size: 20px;
+  border-radius: 12px;
+}
+button:hover {
+  background-color: plum;
 }
