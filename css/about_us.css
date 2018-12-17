@@ -1,0 +1,18 @@
+
+#logo {
+  padding-bottom: 200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+body {
+  text-align: center;
+}
+
+#cards {
+  display: block;
+
+}
+#jasmin, #chris, #paul {
+  display: inline;
+  
+}

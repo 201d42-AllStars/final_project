@@ -11,7 +11,7 @@ a
   text-decoration: none;
   color: #343434; 
   transition: color 0.3s ease;
-  font-family: 'Baloo', cursive;
+  font-family: 'El Messiri', sans-serif;
 
 }
 
@@ -27,7 +27,6 @@ a:hover
   top: 50px;
   right: 50px;
   z-index: 1;
-  -webkit-user-select: none;
   user-select: none;
 }
 
