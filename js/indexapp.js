@@ -253,7 +253,9 @@ function generateTable() {
 
   for (var i = 0; i < userArrayHex.length; i++) {
     var tdEl = document.createElement('td');
-    tdEl.textContent = userArrayHex[i];    
+    var divEl = document.createElement('div');
+    divEl.textContent = userArrayHex[i];
+    tdEl.appendChild(divEl);
     tdEl.style.backgroundColor = userArrayHex[i];
     // tdEl.style.width = '10%';
     trEl.appendChild(tdEl);
@@ -312,13 +314,18 @@ function updateSegments() {
   displayChart();
 }
 
+// This function prevents the information on the page from
+function onKeyPress(event) {
+  event.preventDefault();
+}
+
 
 
 Gradient.left.addEventListener('input', updateLeft);
 Gradient.right.addEventListener('input', updateRight);
 Gradient.segments.addEventListener('input', updateSegments);
 
-
+window.addEventListener('keydown', onKeyPress);
 
 
 // create chart for user input
