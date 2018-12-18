@@ -6,6 +6,7 @@ Gradient.left = document.getElementById('color1');
 Gradient.right = document.getElementById('color2');
 Gradient.segments = document.getElementById('segmentcount');
 Gradient.table = document.getElementById('gradient-table');
+Gradient.currentRow = document.getElementById('current-gradient-row');
 
 Gradient.data = [];
 
@@ -245,27 +246,17 @@ randomData();
 
 // function to get and create tds for table
 
-// function generateTable() {
-//   var trEl = document.createElement('tr');  // pretty sure this needs to get the element by ID and not create a new one
+function generateTable() {
+  Gradient.currentRow.innerHTML = '';
 
-//   if (trEl) {
-//     for (var i = 0; i < userArrayHex.length; i++) {
-//       trEl.deleteCell(i);
+  for (var i = 0; i < userArrayHex.length; i++) {
+    var tdEl = document.createElement('td');
+    tdEl.textContent = userArrayHex[i];
+    Gradient.currentRow.appendChild(tdEl);
+  }
+}
 
-//     }
-
-//   }
-  
- 
-//   Gradient.table.appendChild(trEl);
-//   for (var i = 0; i < userArrayHex.length; i++) {
-//     var tdEl = document.createElement('td');
-//     tdEl.textContent = userArrayHex[i];
-//     trEl.appendChild(tdEl);
-//   }
-// }
-
-// generateTable();
+generateTable();
 
 
 function updateLeft() {
@@ -348,7 +339,7 @@ function displayChart() {
       scales: {
         yAxes: [{
           gridLines: {
-            // display: false,
+            display: false,
           },
           ticks: {
             beginAtZero: true,
@@ -357,10 +348,9 @@ function displayChart() {
         }],
         xAxes: [{
           gridLines: {
-            // display: false,
+            display: false,
           },
           ticks: {
-            // display: false,
           }
         }]
       }
