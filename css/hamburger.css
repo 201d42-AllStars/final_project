@@ -1,12 +1,11 @@
-body {
-  background-color: #343434;
-}
 
-section {
+/* For the Menu on resize
+
+/* section {
   float: right;
-}
+} */
 
-ul {
+#menu {
   list-style-type:none;
   margin:0;
   padding:0;

@@ -20,6 +20,7 @@ h2 {
   display: inline-block;
   padding-left: 15px;
   padding-right: 15px;
+  
 }
 
 img {
@@ -28,11 +29,6 @@ img {
   padding-top: 45px;
 }
 
-title {
-  color: #343434;
-  font-size: 18px;
-  
-}
 p {
   text-align: left;
   padding-left: 60px;
@@ -55,5 +51,9 @@ p {
 .hiddenlink :active {
   text-decoration: none;
   color: #343434;
+}
+
+.card:hover {
+  transform: rotateY(180deg);
 }
 
