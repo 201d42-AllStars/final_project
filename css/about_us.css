@@ -1,0 +1,55 @@
+body
+{
+  margin: 0;
+  padding: 0;
+  background: #343434;
+  overflow-x: hidden; 
+  text-align: center;
+  
+}
+.card {
+  box-shadow: 0 10px 14px 0 rgba(255, 255, 255, 0.2);
+  max-width: 500px;
+  background-color: rgb(204, 207, 209);
+  margin: auto;
+  font-family: arial;
+  display: inline-block;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+img {
+  max-width: 400px;
+  max-height: 400PX;
+  padding-top: 45px;
+}
+
+title {
+  color: #343434;
+  font-size: 18px;
+  
+}
+p {
+  text-align: left;
+  padding-left: 60px;
+}
+.hiddenlink :link {
+  text-decoration: none;
+  color: #343434;
+}
+
+.hiddenlink :visited{
+  text-decoration: none;
+  color: #343434;
+}
+
+.hiddenlink :hover {
+  text-decoration: none;
+  color: #343434;
+}
+
+.hiddenlink :active {
+  text-decoration: none;
+  color: #343434;
+}
+
