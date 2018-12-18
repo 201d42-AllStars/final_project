@@ -229,7 +229,7 @@ convertToHex();
 // generate random number
 
 function randomNum() {
-  var random = Math.random() * (25 - 10) + 10;
+  var random = Math.random() * (25 - 5) + 5;
   var randomRoundedDown = Math.floor(random);
   return randomRoundedDown;
 }
@@ -304,9 +304,9 @@ Gradient.segments.addEventListener('input', updateSegments);
 
 function displayChart() {
 
-  if (displayChart) displayChart.destroy();
+  if (Gradient.displayChart) Gradient.displayChart.destroy();
 
-  var displayChart = new Chart(chart, {
+  Gradient.displayChart = new Chart(chart, {
     type: 'bar',
     data: {
       labels: userArrayHex,
@@ -318,9 +318,7 @@ function displayChart() {
     },
     options: {
       legend: {
-        position: 'top',
-        labels: {
-        },
+        display: false,
       },
       scales: {
         yAxes: [{
@@ -328,7 +326,8 @@ function displayChart() {
             // display: false,
           },
           ticks: {
-            // display: false,
+            beginAtZero: true,
+            display: false,
           }
         }],
         xAxes: [{
