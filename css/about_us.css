@@ -1,11 +1,15 @@
 body
 {
-  margin: 0;
+  margin-top: 70px;
   padding: 0;
   background: #343434;
   overflow-x: hidden; 
   text-align: center;
   
+}
+
+h2 {
+  padding-bottom: 45px;
 }
 .card {
   box-shadow: 0 10px 14px 0 rgba(255, 255, 255, 0.2);
@@ -16,19 +20,15 @@ body
   display: inline-block;
   padding-left: 15px;
   padding-right: 15px;
+  
 }
 
 img {
-  max-width: 400px;
-  max-height: 400PX;
+  max-width: auto;
+  max-height: auto;
   padding-top: 45px;
 }
 
-title {
-  color: #343434;
-  font-size: 18px;
-  
-}
 p {
   text-align: left;
   padding-left: 60px;
@@ -51,5 +51,9 @@ p {
 .hiddenlink :active {
   text-decoration: none;
   color: #343434;
+}
+
+.card:hover {
+  transform: rotateY(180deg);
 }
 
