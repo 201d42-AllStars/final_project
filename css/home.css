@@ -69,3 +69,18 @@ button {
 button:hover {
   background-color: plum;
 }
+/* td {
+  text-align: vertical;
+} */
+tr {
+  height: 150px;
+  width: 100%;
+}
+table {
+  margin-top: 50px;
+  table-layout: fixed;
+  display: inline-block;
+  /* width: 90%; */
+  /* display: block; */
+  /* margin: 0 auto; */
+}
