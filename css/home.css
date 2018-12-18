@@ -23,7 +23,7 @@ h2 {
   padding-right: 10px;
   margin-right: 20px;
   height: 200px;
-  width: 200px;
+  width: 220px;
   border: 2px dotted green;
   vertical-align: middle;
 }
@@ -36,9 +36,22 @@ p {
   margin-top: 10px;
   margin-bottom: 10px;
 }
+#color1 {
+  height: 50px;
+  width: 100px;
+  margin-top: 5px;
+}
+#color2 {
+  height: 50px;
+  width: 100px;
+  margin-top: 5px;
+}
 #segmentcount {
-  margin-top: 35px;
-  width: 50px;
+  margin-top: 20px;
+  height: 40px;
+  width: 55px;
+  font-size: 25px;
+  padding-left: 15px;
 }
 .chart-link {
   margin-top: 30px;
