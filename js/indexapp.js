@@ -243,6 +243,30 @@ function randomData() {
 
 randomData();
 
+// function to get and create tds for table
+
+// function generateTable() {
+//   var trEl = document.createElement('tr');  // pretty sure this needs to get the element by ID and not create a new one
+
+//   if (trEl) {
+//     for (var i = 0; i < userArrayHex.length; i++) {
+//       trEl.deleteCell(i);
+
+//     }
+
+//   }
+  
+ 
+//   Gradient.table.appendChild(trEl);
+//   for (var i = 0; i < userArrayHex.length; i++) {
+//     var tdEl = document.createElement('td');
+//     tdEl.textContent = userArrayHex[i];
+//     trEl.appendChild(tdEl);
+//   }
+// }
+
+// generateTable();
+
 
 function updateLeft() {
   var newLeft = convertToRGB(Gradient.left.value);
@@ -256,6 +280,7 @@ function updateLeft() {
   floorRGB(Gradient.blueArrayRGB);
   generateUserArrayRGB();
   convertToHex();
+  // generateTable();
   randomData();
   displayChart();
 }
@@ -272,6 +297,7 @@ function updateRight() {
   floorRGB(Gradient.blueArrayRGB);
   generateUserArrayRGB();
   convertToHex();
+  // generateTable();
   randomData();
   displayChart();
 }
@@ -285,6 +311,7 @@ function updateSegments() {
   floorRGB(Gradient.blueArrayRGB);
   generateUserArrayRGB();
   convertToHex();
+  // generateTable();
   randomData();
   displayChart();
 }
