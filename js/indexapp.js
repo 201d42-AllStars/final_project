@@ -247,13 +247,18 @@ randomData();
 // function to get and create tds for table
 
 function generateTable() {
-  Gradient.currentRow.innerHTML = '';
+  // Gradient.currentRow.innerHTML = '';
+  Gradient.table.deleteRow(0);
+  var trEl = document.createElement('tr');
 
   for (var i = 0; i < userArrayHex.length; i++) {
     var tdEl = document.createElement('td');
-    tdEl.textContent = userArrayHex[i];
-    Gradient.currentRow.appendChild(tdEl);
+    tdEl.textContent = userArrayHex[i];    
+    tdEl.style.backgroundColor = userArrayHex[i];
+    // tdEl.style.width = '10%';
+    trEl.appendChild(tdEl);
   }
+  Gradient.table.appendChild(trEl);
 }
 
 generateTable();
@@ -271,7 +276,7 @@ function updateLeft() {
   floorRGB(Gradient.blueArrayRGB);
   generateUserArrayRGB();
   convertToHex();
-  // generateTable();
+  generateTable();
   randomData();
   displayChart();
 }
@@ -288,7 +293,7 @@ function updateRight() {
   floorRGB(Gradient.blueArrayRGB);
   generateUserArrayRGB();
   convertToHex();
-  // generateTable();
+  generateTable();
   randomData();
   displayChart();
 }
@@ -302,7 +307,7 @@ function updateSegments() {
   floorRGB(Gradient.blueArrayRGB);
   generateUserArrayRGB();
   convertToHex();
-  // generateTable();
+  generateTable();
   randomData();
   displayChart();
 }
