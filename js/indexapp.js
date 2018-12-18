@@ -1,32 +1,30 @@
 'use-strict';
 
-var hexArray = ['0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f'];
-var chart = document.getElementById('gradient-chart');
+Gradient.hexNumberArray = ['0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f'];
+Gradient.chart = document.getElementById('gradient-chart');
 Gradient.left = document.getElementById('color1');
 Gradient.right = document.getElementById('color2');
 Gradient.segments = document.getElementById('segmentcount');
+Gradient.table = document.getElementById('gradient-table');
+
 Gradient.data = [];
 
 
-var bothColors = [];
+Gradient.bothColors = [];
 
-var differenceArray = [];
+Gradient.differenceArray = [];
 
-var incrementArray = [];
+Gradient.incrementArray = [];
 
-var redArrayRGB = [];
-var greenArrayRGB = [];
-var blueArrayRGB = [];
-var userArrayRGB = [];
+Gradient.redArrayRGB = [];
+Gradient.greenArrayRGB = [];
+Gradient.blueArrayRGB = [];
+Gradient.userArrayRGB = [];
 
 var redArrayHex = [];
 var greenArrayHex = [];
 var blueArrayHex = [];
 var userArrayHex = [];
-
-// var colorOne = '#ff0000';
-// var colorTwo = '#567d46';
-// var segments = 25;
 
 
 // constructor function for user gradient array
@@ -41,6 +39,7 @@ function Gradient(hex1, segments, hex2) {
 
 new Gradient(Gradient.left.value, Gradient.segments.value, Gradient.right.value);
 
+
 // convert the hex code to RGB
 
 function convertToRGB(hexcode) {
@@ -51,12 +50,12 @@ function convertToRGB(hexcode) {
   var five  = hexcode.charAt(5);
   var six   = hexcode.charAt(6);
 
-  var firstDec  = hexArray.indexOf(one);
-  var secondDec = hexArray.indexOf(two);
-  var thirdDec  = hexArray.indexOf(three);
-  var fourthDec = hexArray.indexOf(four);
-  var fifthDec  = hexArray.indexOf(five);
-  var sixthDec  = hexArray.indexOf(six);
+  var firstDec  = Gradient.hexNumberArray.indexOf(one);
+  var secondDec = Gradient.hexNumberArray.indexOf(two);
+  var thirdDec  = Gradient.hexNumberArray.indexOf(three);
+  var fourthDec = Gradient.hexNumberArray.indexOf(four);
+  var fifthDec  = Gradient.hexNumberArray.indexOf(five);
+  var sixthDec  = Gradient.hexNumberArray.indexOf(six);
 
   var redValue   = ( firstDec * 16 ) + secondDec;
   var greenValue = ( thirdDec * 16 ) + fourthDec;
@@ -67,8 +66,8 @@ function convertToRGB(hexcode) {
   return rgbColor;
 }
 
-bothColors.push(convertToRGB(Gradient.left.value));
-bothColors.push(convertToRGB(Gradient.right.value));
+Gradient.bothColors.push(convertToRGB(Gradient.left.value));
+Gradient.bothColors.push(convertToRGB(Gradient.right.value));
 
 
 // function to measure distance between 2 RGB values
@@ -83,20 +82,20 @@ function differences(arrayOfArrays) {
   var blueDiff = arrayOfArrays[0][2] - arrayOfArrays[1][2];
   var absBlueDiff = Math.abs(blueDiff);
 
-  differenceArray = [absRedDiff, absGreenDiff, absBlueDiff];
+  Gradient.differenceArray = [absRedDiff, absGreenDiff, absBlueDiff];
 }
 
-differences(bothColors);
+differences(Gradient.bothColors);
 
 
 // grab difference numbers and divide by segments
 
 function spacing() {
-  var redSpacing = differenceArray[0] / Gradient.segments.value;
-  var greenSpacing = differenceArray[1] / Gradient.segments.value;
-  var blueSpacing = differenceArray[2] / Gradient.segments.value;
+  var redSpacing = Gradient.differenceArray[0] / Gradient.segments.value;
+  var greenSpacing = Gradient.differenceArray[1] / Gradient.segments.value;
+  var blueSpacing = Gradient.differenceArray[2] / Gradient.segments.value;
 
-  incrementArray = [redSpacing, greenSpacing, blueSpacing];
+  Gradient.incrementArray = [redSpacing, greenSpacing, blueSpacing];
 }
 
 spacing();
@@ -105,25 +104,25 @@ spacing();
 // add numbers to red, green, and blue arrays
 
 function rgbArrayPush() {
-  redArrayRGB = [];
-  greenArrayRGB = [];
-  blueArrayRGB = [];
+  Gradient.redArrayRGB = [];
+  Gradient.greenArrayRGB = [];
+  Gradient.blueArrayRGB = [];
 
-  var redFirst = bothColors[0][0];
-  var greenFirst = bothColors[0][1];
-  var blueFirst = bothColors[0][2];
+  var redFirst = Gradient.bothColors[0][0];
+  var greenFirst = Gradient.bothColors[0][1];
+  var blueFirst = Gradient.bothColors[0][2];
 
-  var redLast = bothColors[1][0];
-  var greenLast = bothColors[1][1];
-  var blueLast = bothColors[1][2];
+  var redLast = Gradient.bothColors[1][0];
+  var greenLast = Gradient.bothColors[1][1];
+  var blueLast = Gradient.bothColors[1][2];
 
-  var redSpacing = incrementArray[0];
-  var greenSpacing = incrementArray[1];
-  var blueSpacing = incrementArray[2];
+  var redSpacing = Gradient.incrementArray[0];
+  var greenSpacing = Gradient.incrementArray[1];
+  var blueSpacing = Gradient.incrementArray[2];
 
-  redArrayRGB.push(redFirst);
-  greenArrayRGB.push(greenFirst);
-  blueArrayRGB.push(blueFirst);
+  Gradient.redArrayRGB.push(redFirst);
+  Gradient.greenArrayRGB.push(greenFirst);
+  Gradient.blueArrayRGB.push(blueFirst);
 
   var nextRed = redFirst;
   var nextGreen = greenFirst;
@@ -149,14 +148,14 @@ function rgbArrayPush() {
     }
 
 
-    redArrayRGB.push(nextRed);
-    greenArrayRGB.push(nextGreen);
-    blueArrayRGB.push(nextBlue);
+    Gradient.redArrayRGB.push(nextRed);
+    Gradient.greenArrayRGB.push(nextGreen);
+    Gradient.blueArrayRGB.push(nextBlue);
   }
 
-  redArrayRGB.push(redLast);
-  greenArrayRGB.push(greenLast);
-  blueArrayRGB.push(blueLast);
+  Gradient.redArrayRGB.push(redLast);
+  Gradient.greenArrayRGB.push(greenLast);
+  Gradient.blueArrayRGB.push(blueLast);
 }
 
 rgbArrayPush();
@@ -170,17 +169,17 @@ function floorRGB(colorArray) {
   }
 }
 
-floorRGB(redArrayRGB);
-floorRGB(greenArrayRGB);
-floorRGB(blueArrayRGB);
+floorRGB(Gradient.redArrayRGB);
+floorRGB(Gradient.greenArrayRGB);
+floorRGB(Gradient.blueArrayRGB);
 
 
 // generate user array
 
 function generateUserArrayRGB() {
-  userArrayRGB = [];
+  Gradient.userArrayRGB = [];
   for (var i = 0; i < Gradient.segments.value; i++) {
-    userArrayRGB.push(`rgb(${redArrayRGB[i]},${greenArrayRGB[i]},${blueArrayRGB[i]})`);
+    Gradient.userArrayRGB.push(`rgb(${Gradient.redArrayRGB[i]},${Gradient.greenArrayRGB[i]},${Gradient.blueArrayRGB[i]})`);
   }
 }
 
@@ -191,35 +190,34 @@ generateUserArrayRGB();
 
 function convertToHex() {
   redArrayHex = [];
-  for (var i = 0; i < redArrayRGB.length; i++) {
-    var RGB = redArrayRGB[i];
+  for (var i = 0; i < Gradient.redArrayRGB.length; i++) {
+    var RGB = Gradient.redArrayRGB[i];
     var one = Math.floor( RGB / 16 );
     var two = RGB % 16;
-    var hex = `${hexArray[one]}${hexArray[two]}`;
+    var hex = `${Gradient.hexNumberArray[one]}${Gradient.hexNumberArray[two]}`;
     redArrayHex.push(hex);
   }
   greenArrayHex = [];
-  for (i = 0; i < greenArrayRGB.length; i++) {
-    RGB = greenArrayRGB[i];
+  for (i = 0; i < Gradient.greenArrayRGB.length; i++) {
+    RGB = Gradient.greenArrayRGB[i];
     one = Math.floor( RGB / 16 );
     two = RGB % 16;
-    hex = `${hexArray[one]}${hexArray[two]}`;
+    hex = `${Gradient.hexNumberArray[one]}${Gradient.hexNumberArray[two]}`;
     greenArrayHex.push(hex);
   }
   blueArrayHex = [];
-  for (i = 0; i < blueArrayRGB.length; i++) {
-    RGB = blueArrayRGB[i];
+  for (i = 0; i < Gradient.blueArrayRGB.length; i++) {
+    RGB = Gradient.blueArrayRGB[i];
     one = Math.floor( RGB / 16 );
     two = RGB % 16;
-    hex = `${hexArray[one]}${hexArray[two]}`;
+    hex = `${Gradient.hexNumberArray[one]}${Gradient.hexNumberArray[two]}`;
     blueArrayHex.push(hex);
   }
   userArrayHex = [];
-  for (i = 0; i < userArrayRGB.length; i++) {
+  for (i = 0; i < Gradient.userArrayRGB.length; i++) {
     var hexRed = redArrayHex[i];
     var hexGreen = greenArrayHex[i];
     var hexBlue = blueArrayHex[i];
-    // console.log(hexRed,hexGreen,hexBlue);
     userArrayHex.push(`#${hexRed}${hexGreen}${hexBlue}`);
   }
 }
@@ -249,13 +247,13 @@ randomData();
 function updateLeft() {
   var newLeft = convertToRGB(Gradient.left.value);
 
-  bothColors[0] = newLeft;
-  differences(bothColors);
+  Gradient.bothColors[0] = newLeft;
+  differences(Gradient.bothColors);
   spacing();
   rgbArrayPush();
-  floorRGB(redArrayRGB);
-  floorRGB(greenArrayRGB);
-  floorRGB(blueArrayRGB);
+  floorRGB(Gradient.redArrayRGB);
+  floorRGB(Gradient.greenArrayRGB);
+  floorRGB(Gradient.blueArrayRGB);
   generateUserArrayRGB();
   convertToHex();
   randomData();
@@ -265,13 +263,13 @@ function updateLeft() {
 function updateRight() {
   var newRight = convertToRGB(Gradient.right.value);
 
-  bothColors[1] = newRight;
-  differences(bothColors);
+  Gradient.bothColors[1] = newRight;
+  differences(Gradient.bothColors);
   spacing();
   rgbArrayPush();
-  floorRGB(redArrayRGB);
-  floorRGB(greenArrayRGB);
-  floorRGB(blueArrayRGB);
+  floorRGB(Gradient.redArrayRGB);
+  floorRGB(Gradient.greenArrayRGB);
+  floorRGB(Gradient.blueArrayRGB);
   generateUserArrayRGB();
   convertToHex();
   randomData();
@@ -279,12 +277,12 @@ function updateRight() {
 }
 
 function updateSegments() {
-  differences(bothColors);
+  differences(Gradient.bothColors);
   spacing();
   rgbArrayPush();
-  floorRGB(redArrayRGB);
-  floorRGB(greenArrayRGB);
-  floorRGB(blueArrayRGB);
+  floorRGB(Gradient.redArrayRGB);
+  floorRGB(Gradient.greenArrayRGB);
+  floorRGB(Gradient.blueArrayRGB);
   generateUserArrayRGB();
   convertToHex();
   randomData();
@@ -306,7 +304,7 @@ function displayChart() {
 
   if (Gradient.displayChart) Gradient.displayChart.destroy();
 
-  Gradient.displayChart = new Chart(chart, {
+  Gradient.displayChart = new Chart(Gradient.chart, {
     type: 'bar',
     data: {
       labels: userArrayHex,
