@@ -1,7 +1,10 @@
 'use-strict';
 
 var hexArray = ['0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f'];
-var chart = document.getElementById('results-chart');
+var chart = document.getElementById('gradient-chart');
+Gradient.left = document.getElementById('color1');
+Gradient.right = document.getElementById('color2');
+Gradient.segments = document.getElementById('segmentcount');
 Gradient.data = [];
 
 
@@ -21,9 +24,9 @@ var greenArrayHex = [];
 var blueArrayHex = [];
 var userArrayHex = [];
 
-var colorOne = '#ff0000';
-var colorTwo = '#567d46';
-var segments = 25;
+// var colorOne = '#ff0000';
+// var colorTwo = '#567d46';
+// var segments = 25;
 
 
 // constructor function for user gradient array
@@ -36,7 +39,7 @@ function Gradient(hex1, segments, hex2) {
   this.userArrayHex = [];
 }
 
-var defaultGradient = new Gradient('#ff0000', 20, '#567d46');
+new Gradient(Gradient.left, Gradient.segments, Gradient.right);
 
 // convert the hex code to RGB
 
@@ -64,8 +67,8 @@ function convertToRGB(hexcode) {
   return rgbColor;
 }
 
-bothColors.push(convertToRGB(colorOne));
-bothColors.push(convertToRGB(colorTwo));
+bothColors.push(convertToRGB(Gradient.left));
+bothColors.push(convertToRGB(Gradient.right));
 
 
 // function to measure distance between 2 RGB values
@@ -89,9 +92,9 @@ differences(bothColors);
 // grab difference numbers and divide by segments
 
 function spacing() {
-  var redSpacing = differenceArray[0] / segments;
-  var greenSpacing = differenceArray[1] / segments;
-  var blueSpacing = differenceArray[2] / segments;
+  var redSpacing = differenceArray[0] / Gradient.segments;
+  var greenSpacing = differenceArray[1] / Gradient.segments;
+  var blueSpacing = differenceArray[2] / Gradient.segments;
 
   incrementArray = [redSpacing, greenSpacing, blueSpacing];
 }
@@ -122,7 +125,7 @@ function rgbArrayPush() {
   var nextGreen = greenFirst;
   var nextBlue = blueFirst;
 
-  for (var i = 2; i < segments; i++) {
+  for (var i = 2; i < Gradient.segments; i++) {
     if(redFirst > redLast) {
       nextRed = nextRed - redSpacing;
     } else {
@@ -171,7 +174,7 @@ floorRGB(blueArrayRGB);
 // generate user array
 
 function generateuserArrayRGB() {
-  for (var i = 0; i < segments; i++) {
+  for (var i = 0; i < Gradient.segments; i++) {
     userArrayRGB.push(`rgb(${redArrayRGB[i]},${greenArrayRGB[i]},${blueArrayRGB[i]})`);
   }
 }
@@ -216,17 +219,17 @@ convertToHex();
 
 // generate random number
 
- function randomNum() {
+function randomNum() {
   var random = Math.random() * 25;
   var randomRoundedDown = Math.floor(random);
   return randomRoundedDown;
-};
+}
 
 // create array of random numbers for data of sample chart
 
 function randomData() {
   for (var i = 0; i < userArrayHex.length; i++) {
-    Gradient.data.push(randomNum);
+    Gradient.data.push(randomNum());
   }
 }
 
@@ -252,9 +255,6 @@ function displayChart() {
       legend: {
         position: 'top',
         labels: {
-          fontFamily: "'Nova Mono', monospace",
-          fontSize: 10,
-
         },
       },
       scales: {
