@@ -39,7 +39,7 @@ function Gradient(hex1, segments, hex2) {
   this.userArrayHex = [];
 }
 
-new Gradient(Gradient.left, Gradient.segments, Gradient.right);
+new Gradient(Gradient.left.value, Gradient.segments.value, Gradient.right.value);
 
 // convert the hex code to RGB
 
@@ -67,8 +67,8 @@ function convertToRGB(hexcode) {
   return rgbColor;
 }
 
-bothColors.push(convertToRGB(Gradient.left));
-bothColors.push(convertToRGB(Gradient.right));
+bothColors.push(convertToRGB(Gradient.left.value));
+bothColors.push(convertToRGB(Gradient.right.value));
 
 
 // function to measure distance between 2 RGB values
@@ -92,9 +92,9 @@ differences(bothColors);
 // grab difference numbers and divide by segments
 
 function spacing() {
-  var redSpacing = differenceArray[0] / Gradient.segments;
-  var greenSpacing = differenceArray[1] / Gradient.segments;
-  var blueSpacing = differenceArray[2] / Gradient.segments;
+  var redSpacing = differenceArray[0] / Gradient.segments.value;
+  var greenSpacing = differenceArray[1] / Gradient.segments.value;
+  var blueSpacing = differenceArray[2] / Gradient.segments.value;
 
   incrementArray = [redSpacing, greenSpacing, blueSpacing];
 }
@@ -105,6 +105,10 @@ spacing();
 // add numbers to red, green, and blue arrays
 
 function rgbArrayPush() {
+  redArrayRGB = [];
+  greenArrayRGB = [];
+  blueArrayRGB = [];
+
   var redFirst = bothColors[0][0];
   var greenFirst = bothColors[0][1];
   var blueFirst = bothColors[0][2];
@@ -125,7 +129,7 @@ function rgbArrayPush() {
   var nextGreen = greenFirst;
   var nextBlue = blueFirst;
 
-  for (var i = 2; i < Gradient.segments; i++) {
+  for (var i = 2; i < Gradient.segments.value; i++) {
     if(redFirst > redLast) {
       nextRed = nextRed - redSpacing;
     } else {
@@ -173,18 +177,20 @@ floorRGB(blueArrayRGB);
 
 // generate user array
 
-function generateuserArrayRGB() {
-  for (var i = 0; i < Gradient.segments; i++) {
+function generateUserArrayRGB() {
+  userArrayRGB = [];
+  for (var i = 0; i < Gradient.segments.value; i++) {
     userArrayRGB.push(`rgb(${redArrayRGB[i]},${greenArrayRGB[i]},${blueArrayRGB[i]})`);
   }
 }
 
-generateuserArrayRGB();
+generateUserArrayRGB();
 
 
 // convert RGB back to Hex
 
 function convertToHex() {
+  redArrayHex = [];
   for (var i = 0; i < redArrayRGB.length; i++) {
     var RGB = redArrayRGB[i];
     var one = Math.floor( RGB / 16 );
@@ -192,6 +198,7 @@ function convertToHex() {
     var hex = `${hexArray[one]}${hexArray[two]}`;
     redArrayHex.push(hex);
   }
+  greenArrayHex = [];
   for (i = 0; i < greenArrayRGB.length; i++) {
     RGB = greenArrayRGB[i];
     one = Math.floor( RGB / 16 );
@@ -199,6 +206,7 @@ function convertToHex() {
     hex = `${hexArray[one]}${hexArray[two]}`;
     greenArrayHex.push(hex);
   }
+  blueArrayHex = [];
   for (i = 0; i < blueArrayRGB.length; i++) {
     RGB = blueArrayRGB[i];
     one = Math.floor( RGB / 16 );
@@ -206,10 +214,11 @@ function convertToHex() {
     hex = `${hexArray[one]}${hexArray[two]}`;
     blueArrayHex.push(hex);
   }
+  userArrayHex = [];
   for (i = 0; i < userArrayRGB.length; i++) {
-    var hexRed = redArrayHex[i].toUpperCase();
-    var hexGreen = greenArrayHex[i].toUpperCase();
-    var hexBlue = blueArrayHex[i].toUpperCase();
+    var hexRed = redArrayHex[i];
+    var hexGreen = greenArrayHex[i];
+    var hexBlue = blueArrayHex[i];
     // console.log(hexRed,hexGreen,hexBlue);
     userArrayHex.push(`#${hexRed}${hexGreen}${hexBlue}`);
   }
@@ -220,7 +229,7 @@ convertToHex();
 // generate random number
 
 function randomNum() {
-  var random = Math.random() * 25;
+  var random = Math.random() * (25 - 10) + 10;
   var randomRoundedDown = Math.floor(random);
   return randomRoundedDown;
 }
@@ -228,6 +237,7 @@ function randomNum() {
 // create array of random numbers for data of sample chart
 
 function randomData() {
+  Gradient.data = [];
   for (var i = 0; i < userArrayHex.length; i++) {
     Gradient.data.push(randomNum());
   }
@@ -235,20 +245,75 @@ function randomData() {
 
 randomData();
 
+
+function updateLeft() {
+  var newLeft = convertToRGB(Gradient.left.value);
+
+  bothColors[0] = newLeft;
+  differences(bothColors);
+  spacing();
+  rgbArrayPush();
+  floorRGB(redArrayRGB);
+  floorRGB(greenArrayRGB);
+  floorRGB(blueArrayRGB);
+  generateUserArrayRGB();
+  convertToHex();
+  randomData();
+  displayChart();
+}
+
+function updateRight() {
+  var newRight = convertToRGB(Gradient.right.value);
+
+  bothColors[1] = newRight;
+  differences(bothColors);
+  spacing();
+  rgbArrayPush();
+  floorRGB(redArrayRGB);
+  floorRGB(greenArrayRGB);
+  floorRGB(blueArrayRGB);
+  generateUserArrayRGB();
+  convertToHex();
+  randomData();
+  displayChart();
+}
+
+function updateSegments() {
+  differences(bothColors);
+  spacing();
+  rgbArrayPush();
+  floorRGB(redArrayRGB);
+  floorRGB(greenArrayRGB);
+  floorRGB(blueArrayRGB);
+  generateUserArrayRGB();
+  convertToHex();
+  randomData();
+  displayChart();
+}
+
+
+
+Gradient.left.addEventListener('input', updateLeft);
+Gradient.right.addEventListener('input', updateRight);
+Gradient.segments.addEventListener('input', updateSegments);
+
+
+
+
 // create chart for user input
 
 function displayChart() {
 
-  // if (Images.resultsChart) Images.resultsChart.destroy();
+  if (displayChart) displayChart.destroy();
 
-  new Chart(chart, {
+  var displayChart = new Chart(chart, {
     type: 'bar',
     data: {
       labels: userArrayHex,
       datasets: [{
         label: '',
         data: Gradient.data,
-        backgroundColor: userArrayHex
+        backgroundColor: userArrayHex,
       }],
     },
     options: {
