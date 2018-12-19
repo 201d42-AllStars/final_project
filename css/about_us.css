@@ -17,21 +17,39 @@ h2 {
 }
 .card {
   box-shadow: 0 10px 14px 0 rgba(255, 255, 255, 0.2);
-  max-width: 500px;
+  width: 400px;
   background-color: rgb(204, 207, 209);
-  margin: auto;
   font-family: arial;
   display: inline-block;
   padding-left: 15px;
   padding-right: 15px;
+  position: relative;
 
-  
 }
 
 img {
-  max-width: auto;
-  max-height: auto;
+  /* max-width: auto;
+  max-height: auto; */
+  width: 400px;
   padding-top: 45px;
+}
+
+
+.card .back {
+  display: none;
+  position: absolute;
+  z-index: 99;
+}
+
+
+.card:hover .back {
+  display: inline-block;
+}
+
+
+.front, .back {
+  width: 400px;
+  height: 400px;  
 }
 
 p {
@@ -58,7 +76,4 @@ p {
   color: #343434;
 }
 
-.card:hover {
-  transform: rotateY(180deg);
-}
 
