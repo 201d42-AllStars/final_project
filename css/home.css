@@ -85,14 +85,6 @@ p {
   padding-left: 15px;
 }
 
-.table-frame {
-  margin-top: 50px;
-  display: inline-block;
-  width: 80%;
-  border: 6px solid rgb(192, 171, 75);
-  border-radius: 6px;
-}
-
 .chart-link {
   margin-top: 30px;
   font-family: 'Play', sans-serif;
@@ -111,20 +103,28 @@ button:hover {
   background-color: plum;
 }
 
-td {
-  margin: 0 auto;
-  width: auto;
+.table-frame {
+  margin-top: 50px;
+  display: inline-block;
+  width: 75%;
+  border: 6px solid rgb(192, 171, 75);
+  border-radius: 6px;
+}
+
+table {
+  /* table-layout: fixed; */
+  display: inline-block;
+  width: 100%;
 }
 
 tr {
   height: 150px;
+  width: 100%;
 }
 
-table {
-  margin: 0px;
-  /* table-layout: fixed; */
-  display: inline-block;
-  width: 100%;
+td {
+  width: 1%;
+  min-width: 1%;
 }
 
 #chart-container {
