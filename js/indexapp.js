@@ -330,16 +330,17 @@ function onKeyPress(event) {
 
 function saveColorSelection(event) {
   event.preventDefault();
-  // Saves the user color selection to local storage.
-  localStorage.setItem('userColorSelection', JSON.stringify(userArrayHex));
 
   // Add the user color selection into the savedArrays array.
   savedArrays.push(userArrayHex);
+
+  // Saves the user color selection to local storage.
+  localStorage.setItem('userColorSelection', JSON.stringify(savedArrays));
 }
 
-function handleClickPrevious(event) {
+// function handleClickPrevious(event) {
 
-}
+// }
 
 
 
@@ -348,7 +349,7 @@ Gradient.right.addEventListener('input', updateRight);
 Gradient.segments.addEventListener('input', updateSegments);
 
 Gradient.form.addEventListener('submit', saveColorSelection);
-Gradient.linkPrevious.addEventListener('click', handleClickPrevious);
+// Gradient.linkPrevious.addEventListener('click', handleClickPrevious);
 
 window.addEventListener('keydown', onKeyPress);
 
