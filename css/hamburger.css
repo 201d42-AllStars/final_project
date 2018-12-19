@@ -4,13 +4,14 @@
   text-align: center;
   font-size: 14pt;
   position: relative;
+  margin-bottom: 15px;
 }
 
 li {
   display:inline;
   padding-left: 10px;
   padding-right: 10px;
-  font-size: 2.5vw;
+  /* font-size: 2.5vw; */
   font-family: 'Play', sans-serif;
   
 }
@@ -20,9 +21,9 @@ li :hover {
 
 }
 ul {
-background-color: grey;  
-padding-top: 5px;
-padding-bottom: 5px;
+  background-color: #676767;  
+    /* padding-top: 5px;
+    padding-bottom: 5px; */
 }
 
 
