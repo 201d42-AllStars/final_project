@@ -4,7 +4,7 @@
 var tableGradient = JSON.parse( localStorage.getItem('userColorSelection') );
 // var table = document.getElementById('gradient-table');
 
-console.log(tableGradient);
+// console.log(tableGradient);
 
 var section = document.getElementById('previous-section');
 

@@ -9,6 +9,7 @@ Gradient.table = document.getElementById('gradient-table');
 Gradient.currentRow = document.getElementById('current-gradient-row');
 Gradient.form = document.getElementById('color-input-form');
 Gradient.previousResultsForm = document.getElementById('previous-results-form');
+Gradient.button = document.getElementById('save-button');
 
 Gradient.data = [];
 
@@ -252,17 +253,35 @@ randomData();
 
 function generateTable() {
   Gradient.table.deleteRow(0);
+
+  if(Gradient.table.childElementCount - 1) {
+    Gradient.table.deleteRow(0);
+  }
+
   var trEl = document.createElement('tr');
+  var tr2El = document.createElement('tr');
 
   for (var i = 0; i < userArrayHex.length; i++) {
     var tdEl = document.createElement('td');
     var divEl = document.createElement('div');
-    divEl.textContent = userArrayHex[i];
-    tdEl.appendChild(divEl);
+    // divEl.textContent = userArrayHex[i];
+    // tdEl.appendChild(divEl);
     tdEl.style.backgroundColor = userArrayHex[i];
+    tdEl.appendChild(divEl);
     trEl.appendChild(tdEl);
+
+    // Place the hex values beneath the table so it is under the color segments.
+    // Add another row to contain the hex value for each data element.  This will be contained
+    // in a div element.  
+    tdEl = document.createElement('td');
+    divEl = document.createElement('div');
+    var hexValue = userArrayHex[i];
+    divEl.textContent = hexValue;
+    tdEl.appendChild(divEl);
+    tr2El.appendChild(tdEl);
   }
   Gradient.table.appendChild(trEl);
+  Gradient.table.appendChild(tr2El);
 }
 
 generateTable();
@@ -346,7 +365,8 @@ Gradient.left.addEventListener('input', updateLeft);
 Gradient.right.addEventListener('input', updateRight);
 Gradient.segments.addEventListener('input', updateSegments);
 
-Gradient.form.addEventListener('submit', saveColorSelection);
+// Gradient.form.addEventListener('submit', saveColorSelection);
+Gradient.button.addEventListener('click', saveColorSelection);
 
 window.addEventListener('keydown', onKeyPress);
 
