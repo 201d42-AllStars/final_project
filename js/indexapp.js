@@ -29,7 +29,10 @@ var redArrayHex = [];
 var greenArrayHex = [];
 var blueArrayHex = [];
 var userArrayHex = [];
-var savedArrays = [];
+
+if(! savedArrays) {
+  var savedArrays = [];
+}
 
 Gradient.tableGradient = JSON.parse( localStorage.getItem('userColorSelection') );
 
@@ -345,6 +348,13 @@ function onKeyPress(event) {
   }
 }
 
+// Need to updte the saved arrays to contain what is in local storage if there is any color sections
+// saved in local storage.
+if(localStorage.userColorSelection) {
+  savedArrays = Gradient.tableGradient;
+}
+
+
 function saveColorSelection(event) {
   event.preventDefault();
 
@@ -354,12 +364,6 @@ function saveColorSelection(event) {
   // Saves the user color selection to local storage.
   localStorage.setItem('userColorSelection', JSON.stringify(savedArrays));
 }
-
-// function handleClickPrevious(event) {
-
-// }
-
-
 
 Gradient.left.addEventListener('input', updateLeft);
 Gradient.right.addEventListener('input', updateRight);
