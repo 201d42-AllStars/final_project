@@ -78,17 +78,19 @@ p {
 }
 
 #segmentcount {
-  margin-top: 20px;
+  margin-top: 0px;
   height: 40px;
   width: 55px;
   font-size: 25px;
   padding-left: 15px;
 }
 
-.chart-link {
-  margin-top: 30px;
+#chart-link {
+  display: block;
+  margin-top: 40px;
   font-family: 'Play', sans-serif;
   color: #efefef;
+  text-decoration: none;
   font-size: 20px;
 }
 
@@ -124,7 +126,7 @@ tr {
 
 td {
   width: 1%;
-  min-width: 1%;
+  min-width: 0%;
 }
 
 #chart-container {
