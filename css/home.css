@@ -21,12 +21,6 @@ h2 {
   font-family: 'Play', sans-serif;
 }
 
-/* #color-input-form {
-  overflow: auto;
-  display: block;
-  margin: 0 auto;
-} */
-
 #color1, #color2 {
   border: 6px solid rgb(192, 171, 75);
   border-radius: 3px;
@@ -78,17 +72,19 @@ p {
 }
 
 #segmentcount {
-  margin-top: 20px;
+  margin-top: 30px;
   height: 40px;
   width: 55px;
   font-size: 25px;
   padding-left: 15px;
 }
 
-.chart-link {
-  margin-top: 30px;
+#chart-link {
+  display: block;
+  margin-top: 40px;
   font-family: 'Play', sans-serif;
   color: #efefef;
+  text-decoration: none;
   font-size: 20px;
 }
 
@@ -122,7 +118,14 @@ tr {
   width: 100%;
 }
 
+tr:last-child {
+  height: 90px;
+}
+
 td {
+  /* position: relative; */
+  padding: 0;
+  margin: 0;
   width: 1%;
   min-width: 1%;
 }
@@ -135,5 +138,11 @@ td {
 }
 
 div {
+  /* float: left; */
   transform: rotate(90deg);
+  margin-top: 38px;
+  font-size: 12px;
+  font-family: 'Play', sans-serif;
+  color: #cdcdcd;
 }
+
