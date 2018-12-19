@@ -10,8 +10,6 @@ Gradient.currentRow = document.getElementById('current-gradient-row');
 Gradient.form = document.getElementById('color-input-form');
 Gradient.previousResultsForm = document.getElementById('previous-results-form');
 
-Gradient.linkPrevious = document.getElementById('linkPrevious');
-
 Gradient.data = [];
 
 
@@ -318,7 +316,7 @@ function updateSegments() {
   displayChart();
 }
 
-// This function prevents the information on the page from
+// This function prevents the information on the page from being refreshed.
 function onKeyPress(event) {
   switch (event.keyCode) {
   case 13:
@@ -349,7 +347,6 @@ Gradient.right.addEventListener('input', updateRight);
 Gradient.segments.addEventListener('input', updateSegments);
 
 Gradient.form.addEventListener('submit', saveColorSelection);
-// Gradient.linkPrevious.addEventListener('click', handleClickPrevious);
 
 window.addEventListener('keydown', onKeyPress);
 

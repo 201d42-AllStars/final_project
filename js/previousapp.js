@@ -17,7 +17,7 @@ function generateTable() {
       var divEl = document.createElement('div');
       divEl.textContent = tableGradient[i][j];
       tdEl.appendChild(divEl);
-      tdEl.style.backgroundColor = tableGradient[i];
+      tdEl.style.backgroundColor = tableGradient[i][j];
       trEl.appendChild(tdEl);
     }
     table.appendChild(trEl);
