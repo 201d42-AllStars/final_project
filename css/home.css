@@ -41,7 +41,7 @@ h2 {
   /* margin-right: 20px; */
   padding-top: 10px;
   height: 200px;
-  width: 280px;
+  width: 260px;
   /* border: 2px dotted green; */
   vertical-align: middle;
 }
@@ -85,6 +85,14 @@ p {
   padding-left: 15px;
 }
 
+.table-frame {
+  margin-top: 50px;
+  display: inline-block;
+  width: 80%;
+  border: 6px solid rgb(192, 171, 75);
+  border-radius: 6px;
+}
+
 .chart-link {
   margin-top: 30px;
   font-family: 'Play', sans-serif;
@@ -103,35 +111,28 @@ button:hover {
   background-color: plum;
 }
 
-/* td {
-  text-align: vertical;
-} */
+td {
+  margin: 0 auto;
+  width: auto;
+}
 
 tr {
   height: 150px;
-  width: 100%;
 }
 
 table {
-  margin-top: 50px;
-  table-layout: fixed;
+  margin: 0px;
+  /* table-layout: fixed; */
   display: inline-block;
-  /* width: 90%; */
-  /* display: block; */
-  /* margin: 0 auto; */
+  width: 100%;
 }
 
 #chart-container {
   margin: 80px auto 0px;
   position: relative;
   display: inline-block;
-  width: 70%;
+  width: 80%;
 }
-
-/* #gradient-chart {
-  width: 100px;
-
-} */
 
 div {
   transform: rotate(90deg);

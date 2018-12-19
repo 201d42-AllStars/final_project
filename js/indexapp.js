@@ -7,6 +7,10 @@ Gradient.right = document.getElementById('color2');
 Gradient.segments = document.getElementById('segmentcount');
 Gradient.table = document.getElementById('gradient-table');
 Gradient.currentRow = document.getElementById('current-gradient-row');
+Gradient.form = document.getElementById('color-input-form');
+Gradient.previousResultsForm = document.getElementById('previous-results-form');
+
+Gradient.linkPrevious = document.getElementById('linkPrevious');
 
 Gradient.data = [];
 
@@ -26,7 +30,9 @@ var redArrayHex = [];
 var greenArrayHex = [];
 var blueArrayHex = [];
 var userArrayHex = [];
+var savedArrays = [];
 
+Gradient.tableGradient = JSON.parse( localStorage.getItem('userColorSelection') );
 
 // constructor function for user gradient array
 
@@ -247,7 +253,6 @@ randomData();
 // function to get and create tds for table
 
 function generateTable() {
-  // Gradient.currentRow.innerHTML = '';
   Gradient.table.deleteRow(0);
   var trEl = document.createElement('tr');
 
@@ -257,7 +262,6 @@ function generateTable() {
     divEl.textContent = userArrayHex[i];
     tdEl.appendChild(divEl);
     tdEl.style.backgroundColor = userArrayHex[i];
-    // tdEl.style.width = '10%';
     trEl.appendChild(tdEl);
   }
   Gradient.table.appendChild(trEl);
@@ -316,14 +320,36 @@ function updateSegments() {
 
 // This function prevents the information on the page from
 function onKeyPress(event) {
-  event.preventDefault();
+  switch (event.keyCode) {
+  case 13:
+    event.preventDefault();
+    break;
+  default:
+  }
 }
+
+function saveColorSelection(event) {
+  event.preventDefault();
+
+  // Add the user color selection into the savedArrays array.
+  savedArrays.push(userArrayHex);
+
+  // Saves the user color selection to local storage.
+  localStorage.setItem('userColorSelection', JSON.stringify(savedArrays));
+}
+
+// function handleClickPrevious(event) {
+
+// }
 
 
 
 Gradient.left.addEventListener('input', updateLeft);
 Gradient.right.addEventListener('input', updateRight);
 Gradient.segments.addEventListener('input', updateSegments);
+
+Gradient.form.addEventListener('submit', saveColorSelection);
+// Gradient.linkPrevious.addEventListener('click', handleClickPrevious);
 
 window.addEventListener('keydown', onKeyPress);
 

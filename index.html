@@ -6,29 +6,30 @@
     <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/home.css">
-    <link rel="stylesheet" type="text/css" href="../final_project/css/hamburger.css">
+    <link rel="stylesheet" href="./css/hamburger.css">
+
   </head>
 
   <body>
     <header>
       <h1>re:spe|&ltt</h1>
-    <section>
-    <label for="show-menu" class="show-menu">Menu</label>
-    <input type="checkbox" id="show-menu" role="button">
-        <ul id="menu">
-        <li><a href="../final_project/index.html">Home</a></li>
-        <li><a href="../final_project/pages/examples.html">Examples</a></li>
-        <li><a href="../final_project/pages/previous.html">Previous</a></li>
-        <li><a href="../final_project/pages/about_us.html">Our Team</a></li>
-        </ul>
-    </section>   
+      <section>
+        <label for="show-menu" class="show-menu">Menu</label>
+        <input type="checkbox" id="show-menu" role="button">
+          <ul id="menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="pages/examples.html">Examples</a></li>
+          <li><a id="previousLink" href="pages/previous.html">Previous</a></li>
+          <li><a href="pages/about_us.html">Our Team</a></li>
+          </ul>
+      </section>   
     </header>
     <section>
       <form id="color-input-form">
         <fieldset>
           <section class="steps">
             <h2>Step 1:</h2>
-            <p>Click the box, select a color in the color picker box, and click again to select your starting color.</p>
+            <p>Click the box below and select a color in the color picker window for your starting color</p>
 
             <label for="color1"></label>
             <input id="color1" type="color"  name="gradientcolor1" value="#00eea8" required/>
@@ -36,30 +37,36 @@
 
           <section id="segments" class="steps">
             <h2>Step 2:</h2>
-            <p>Enter the number of segments to generate.</p> 
+            <p>Enter the number of segments to generate</p> 
           
             <label for="segmentcount"></label>
-            <input id="segmentcount" type="number" name="gradientnumberofsegments" value="10" min="3" max="25" required/>
+            <input id="segmentcount" type="number" name="gradientnumberofsegments" value="15" min="3" max="25" required/>
           </section>
 
           <section class="steps">
             <h2>Step 3:</h2>
-            <p>Click the box, select a color in the color picker box, and click again to select your ending color.</p>
+            <p>Click the box below and select a color in the color picker window for your ending color</p>
 
             <label for="color2"></label>
             <input id="color2" type="color"   name="gradientcolor2" value="#ff85fb" required/>
           </section>
 
-          <section>
-            <button class="round">SAVE</button>
-          </section>
         </fieldset>
       </form>
     </section>
 
-    <table id="gradient-table">
-      <tr id="current-gradient-row"></tr>
-    </table>
+    <section class="table-frame">
+      <table id="gradient-table">
+        <tbody>
+          <tr id="current-gradient-row"></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <button>SAVE</button>
+    </section>
+
     
     <section class="chart-link">
       <a href="#gradient-chart"><span>sample bar chart</span></a>
