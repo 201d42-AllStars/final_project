@@ -11,7 +11,6 @@ li {
   display:inline;
   padding-left: 10px;
   padding-right: 10px;
-  /* font-size: 2.5vw; */
   font-family: 'Play', sans-serif;
   
 }
@@ -21,9 +20,8 @@ li :hover {
 
 }
 ul {
-  background-color: #676767;  
-    /* padding-top: 5px;
-    padding-bottom: 5px; */
+  background-color: #474545;  
+
 }
 
 
