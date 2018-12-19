@@ -9,7 +9,11 @@ body
 }
 
 h2 {
-  padding-bottom: 45px;
+  color: #efefef;
+  font-size: 100px;
+  text-align: center;
+  margin-bottom: 50px;
+  font-family: 'Nanum Gothic', 'Play', sans-serif;
 }
 .card {
   box-shadow: 0 10px 14px 0 rgba(255, 255, 255, 0.2);
@@ -20,6 +24,7 @@ h2 {
   display: inline-block;
   padding-left: 15px;
   padding-right: 15px;
+
   
 }
 

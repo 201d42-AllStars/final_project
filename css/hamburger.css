@@ -15,7 +15,7 @@
 }
 
 li {
-  display:inline-block;
+  display:inline;
   margin-right: 1px;
 }
 
@@ -74,7 +74,11 @@ input[type=checkbox]:checked ~ #menu{
   }
 
   li {
-      margin-bottom: 1px;
+      width: 100%;
+      display: inline-block;
+      margin:0;
+      padding:0;
+      position: relative;
   }
 
   ul li, li a {
