@@ -26,6 +26,9 @@ h2 {
   position: relative;
 
 }
+#menubar {
+padding-bottom: 40px;
+}
 
 img {
   /* max-width: auto;
