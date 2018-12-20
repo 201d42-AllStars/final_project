@@ -3,7 +3,7 @@
 
   <head>
     <title>re:spekt</title>
-    <link id="flavicon" rel="shortcut icon" href="images/re-spekt_favicon.png">
+    <link id="flavicon" rel="shortcut icon" href="images/littleicon.png">
     <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic|Play" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
     <link rel="stylesheet" href="./css/reset.css">
@@ -13,7 +13,7 @@
 
   <body>
     <header>
-      <h1>re:spe|&ltt</h1>
+      <h1>re<span id="colon">:</span>spe<span id="logo-k">|&lt</span>t</h1>
       <section id="menubar">
         <ul id="menu">
           <li><a href="index.html">Home</a></li>
@@ -28,7 +28,7 @@
         <fieldset>
           <section class="steps">
             <h2>Step 1:</h2>
-            <p>Click the box below and select a color in the color picker window for your starting color</p>
+            <p>Click the box below and select a color from the color picker window for your starting color</p>
 
             <label for="color1"></label>
             <input id="color1" type="color"  name="gradientcolor1" value="#00eea8" required/>
@@ -36,15 +36,15 @@
 
           <section id="segments" class="steps">
             <h2>Step 2:</h2>
-            <p>Enter the number of segments to generate</p> 
+            <p>Enter the number of segments you want</p> 
           
             <label for="segmentcount"></label>
-            <input id="segmentcount" type="number" name="gradientnumberofsegments" value="15" min="3" max="25" required/>
+            <input id="segmentcount" type="number" name="gradientnumberofsegments" value="15" min="3" max="50" required/>
           </section>
 
           <section class="steps">
             <h2>Step 3:</h2>
-            <p>Click the box below and select a color in the color picker window for your ending color</p>
+            <p>Click the box below and select a color from the color picker window for your ending color</p>
 
             <label for="color2"></label>
             <input id="color2" type="color"   name="gradientcolor2" value="#ff85fb" required/>
@@ -59,7 +59,7 @@
     </section>
 
     <section>
-      <button id="save-button">SAVE</button>
+      <button id="save-button">save</button>
     </section>
 
     <a id="chart-link" href="#gradient-chart"><span>sample bar chart</span></a>
@@ -68,6 +68,6 @@
       <canvas id="gradient-chart"></canvas>
     </section>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
-    <script src="./js/indexapp.js"></script>
+    <script src="js/indexapp.js"></script>
   </body>
 </html>

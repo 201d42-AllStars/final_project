@@ -11,6 +11,8 @@ Gradient.form = document.getElementById('color-input-form');
 Gradient.previousResultsForm = document.getElementById('previous-results-form');
 Gradient.button = document.getElementById('save-button');
 Gradient.userSection = document.getElementById('user-section');
+Gradient.k = document.getElementById('logo-k');
+
 
 Gradient.data = [];
 
@@ -35,7 +37,12 @@ if(! savedArrays) {
   var savedArrays = [];
 }
 
-Gradient.tableGradient = JSON.parse( localStorage.getItem('userColorSelection') );
+Gradient.sectionGradient = JSON.parse( localStorage.getItem('userColorSelection') );
+
+if (Gradient.sectionGradient) {
+  Gradient.left.value = Gradient.sectionGradient[Gradient.sectionGradient.length - 1][0];
+  Gradient.right.value = Gradient.sectionGradient[Gradient.sectionGradient.length - 1][Gradient.sectionGradient[Gradient.sectionGradient.length - 1].length - 1];
+}
 
 // constructor function for user gradient array
 
@@ -49,6 +56,16 @@ function Gradient(hex1, segments, hex2) {
 
 new Gradient(Gradient.left.value, Gradient.segments.value, Gradient.right.value);
 
+// make K match current gradient
+
+function makeK() {
+  var background = `-webkit-linear-gradient(${Gradient.left.value},${Gradient.right.value})`;
+  var webOne = '-webkit-background-clip';
+  Gradient.k.style.background = background;
+  Gradient.k.style[webOne] = 'text';
+}
+
+makeK();
 
 // convert the hex code to RGB
 
@@ -339,6 +356,7 @@ function updateLeft() {
   generateUserSection();
   randomData();
   displayChart();
+  makeK();
 }
 
 function updateRight() {
@@ -356,6 +374,7 @@ function updateRight() {
   generateUserSection();
   randomData();
   displayChart();
+  makeK();
 }
 
 function updateSegments() {
@@ -385,7 +404,7 @@ function onKeyPress(event) {
 // Need to updte the saved arrays to contain what is in local storage if there is any color sections
 // saved in local storage.
 if(localStorage.userColorSelection) {
-  savedArrays = Gradient.tableGradient;
+  savedArrays = Gradient.sectionGradient;
 }
 
 
