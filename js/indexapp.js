@@ -5,8 +5,14 @@ Gradient.chart = document.getElementById('gradient-chart');
 Gradient.left = document.getElementById('color1');
 Gradient.right = document.getElementById('color2');
 Gradient.segments = document.getElementById('segmentcount');
-Gradient.table = document.getElementById('gradient-table');
+// Gradient.table = document.getElementById('gradient-table');
 Gradient.currentRow = document.getElementById('current-gradient-row');
+Gradient.form = document.getElementById('color-input-form');
+Gradient.previousResultsForm = document.getElementById('previous-results-form');
+Gradient.button = document.getElementById('save-button');
+Gradient.userSection = document.getElementById('user-section');
+Gradient.k = document.getElementById('logo-k');
+
 
 Gradient.data = [];
 
@@ -27,6 +33,16 @@ var greenArrayHex = [];
 var blueArrayHex = [];
 var userArrayHex = [];
 
+if(! savedArrays) {
+  var savedArrays = [];
+}
+
+Gradient.sectionGradient = JSON.parse( localStorage.getItem('userColorSelection') );
+
+if (Gradient.sectionGradient) {
+  Gradient.left.value = Gradient.sectionGradient[Gradient.sectionGradient.length - 1][0];
+  Gradient.right.value = Gradient.sectionGradient[Gradient.sectionGradient.length - 1][Gradient.sectionGradient[Gradient.sectionGradient.length - 1].length - 1];
+}
 
 // constructor function for user gradient array
 
@@ -40,6 +56,16 @@ function Gradient(hex1, segments, hex2) {
 
 new Gradient(Gradient.left.value, Gradient.segments.value, Gradient.right.value);
 
+// make K match current gradient
+
+function makeK() {
+  var background = `-webkit-linear-gradient(${Gradient.left.value},${Gradient.right.value})`;
+  var webOne = '-webkit-background-clip';
+  Gradient.k.style.background = background;
+  Gradient.k.style[webOne] = 'text';
+}
+
+makeK();
 
 // convert the hex code to RGB
 
@@ -244,19 +270,75 @@ function randomData() {
 
 randomData();
 
-// function to get and create tds for table
+// function to get and create spans for section
 
-function generateTable() {
-  Gradient.currentRow.innerHTML = '';
+function generateUserSection() {
+  Gradient.userSection.innerHTML = '';
+
+  var colors = document.createElement('section');
+  colors.className = 'colors';
+
+  var hexCodes = document.createElement('section');
+  hexCodes.className = 'hex-codes';
 
   for (var i = 0; i < userArrayHex.length; i++) {
-    var tdEl = document.createElement('td');
-    tdEl.textContent = userArrayHex[i];
-    Gradient.currentRow.appendChild(tdEl);
+    var color = document.createElement('span');
+    var percent = 100 / userArrayHex.length;
+    var string = `${percent}%`;
+
+    color.style.width = string;
+    color.style.height = '150px';
+    color.style.backgroundColor = userArrayHex[i];
+    colors.appendChild(color);
+    
+    var hex = document.createElement('span');
+    hex.className = 'rotate-text';
+    hex.style.width = string;
+    hex.textContent = userArrayHex[i];
+    hexCodes.appendChild(hex);
   }
+  Gradient.userSection.appendChild(colors);
+  Gradient.userSection.appendChild(hexCodes);
 }
 
-generateTable();
+generateUserSection();
+
+
+
+// function generateTable() {
+//   Gradient.table.deleteRow(0);
+
+//   if(Gradient.table.childElementCount - 1) {
+//     Gradient.table.deleteRow(0);
+//   }
+
+//   var trEl = document.createElement('tr');
+//   var tr2El = document.createElement('tr');
+
+//   for (var i = 0; i < userArrayHex.length; i++) {
+//     var tdEl = document.createElement('td');
+//     var divEl = document.createElement('div');
+//     // divEl.textContent = userArrayHex[i];
+//     // tdEl.appendChild(divEl);
+//     tdEl.style.backgroundColor = userArrayHex[i];
+//     tdEl.appendChild(divEl);
+//     trEl.appendChild(tdEl);
+
+//     // Place the hex values beneath the table so it is under the color segments.
+//     // Add another row to contain the hex value for each data element.  This will be contained
+//     // in a div element.  
+//     tdEl = document.createElement('td');
+//     divEl = document.createElement('div');
+//     var hexValue = userArrayHex[i];
+//     divEl.textContent = hexValue;
+//     tdEl.appendChild(divEl);
+//     tr2El.appendChild(tdEl);
+//   }
+//   Gradient.table.appendChild(trEl);
+//   Gradient.table.appendChild(tr2El);
+// }
+
+// generateTable();
 
 
 function updateLeft() {
@@ -271,9 +353,10 @@ function updateLeft() {
   floorRGB(Gradient.blueArrayRGB);
   generateUserArrayRGB();
   convertToHex();
-  // generateTable();
+  generateUserSection();
   randomData();
   displayChart();
+  makeK();
 }
 
 function updateRight() {
@@ -288,9 +371,10 @@ function updateRight() {
   floorRGB(Gradient.blueArrayRGB);
   generateUserArrayRGB();
   convertToHex();
-  // generateTable();
+  generateUserSection();
   randomData();
   displayChart();
+  makeK();
 }
 
 function updateSegments() {
@@ -302,18 +386,46 @@ function updateSegments() {
   floorRGB(Gradient.blueArrayRGB);
   generateUserArrayRGB();
   convertToHex();
-  // generateTable();
+  generateUserSection();
   randomData();
   displayChart();
 }
 
+// This function prevents the information on the page from being refreshed.
+function onKeyPress(event) {
+  switch (event.keyCode) {
+  case 13:
+    event.preventDefault();
+    break;
+  default:
+  }
+}
 
+// Need to updte the saved arrays to contain what is in local storage if there is any color sections
+// saved in local storage.
+if(localStorage.userColorSelection) {
+  savedArrays = Gradient.sectionGradient;
+}
+
+
+function saveColorSelection(event) {
+  event.preventDefault();
+
+  // Add the user color selection into the savedArrays array.
+  savedArrays.push(userArrayHex);
+
+  // Saves the user color selection to local storage.
+  localStorage.setItem('userColorSelection', JSON.stringify(savedArrays));
+}
 
 Gradient.left.addEventListener('input', updateLeft);
 Gradient.right.addEventListener('input', updateRight);
 Gradient.segments.addEventListener('input', updateSegments);
 
+// Gradient.form.addEventListener('submit', saveColorSelection);
+Gradient.button.addEventListener('click', saveColorSelection);
 
+window.addEventListener('keydown', onKeyPress);
 
 
 // create chart for user input
