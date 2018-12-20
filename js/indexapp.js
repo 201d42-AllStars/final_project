@@ -428,3 +428,6 @@ function displayChart() {
 
 
 Gradient.chartLink.addEventListener('click', displayChart);
+
+// AColorPicker.from('div.picker')
+//   .on(change, picker);
