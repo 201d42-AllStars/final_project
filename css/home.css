@@ -91,13 +91,19 @@ button:hover {
   width: 80%;
 }
 
+#previous-section > section {
+  margin: 55px auto 50px;
+  width: 80%;
+  
+}
+
 .colors {
   display: inline-block;
   height: 150px;
   width: 100%;
 }
 
-.colors span {
+span {
   display: inline-block;
 }
 
