@@ -11,6 +11,7 @@ Gradient.previousResultsForm = document.getElementById('previous-results-form');
 Gradient.button = document.getElementById('save-button');
 Gradient.userSection = document.getElementById('user-section');
 Gradient.k = document.getElementById('logo-k');
+Gradient.chartLink = document.getElementById('chart-link');
 Gradient.data = [];
 Gradient.bothColors = [];
 Gradient.differenceArray = [];
@@ -19,7 +20,6 @@ Gradient.redArrayRGB = [];
 Gradient.greenArrayRGB = [];
 Gradient.blueArrayRGB = [];
 Gradient.userArrayRGB = [];
-
 Gradient.redHexArray = [];
 Gradient.greenHexArray = [];
 Gradient.blueHexArray = [];
@@ -34,6 +34,7 @@ Gradient.sectionGradient = JSON.parse( localStorage.getItem('userColorSelection'
 if (Gradient.sectionGradient) {
   Gradient.left.value = Gradient.sectionGradient[Gradient.sectionGradient.length - 1][0];
   Gradient.right.value = Gradient.sectionGradient[Gradient.sectionGradient.length - 1][Gradient.sectionGradient[Gradient.sectionGradient.length - 1].length - 1];
+  Gradient.segments.value = Gradient.sectionGradient[Gradient.sectionGradient.length - 1].length;
 }
 
 // constructor function for user gradient array
@@ -311,7 +312,6 @@ function updateLeft() {
   convertToHex();
   generateUserSection();
   randomData();
-  displayChart();
   makeK();
 }
 
@@ -329,7 +329,6 @@ function updateRight() {
   convertToHex();
   generateUserSection();
   randomData();
-  displayChart();
   makeK();
 }
 
@@ -344,7 +343,6 @@ function updateSegments() {
   convertToHex();
   generateUserSection();
   randomData();
-  displayChart();
 }
 
 // This function prevents the information on the page from being refreshed.
@@ -428,6 +426,5 @@ function displayChart() {
   });
 }
 
-displayChart();
 
-
+Gradient.chartLink.addEventListener('click', displayChart);
