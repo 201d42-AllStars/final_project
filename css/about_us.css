@@ -50,10 +50,15 @@ img {
 .card .back {
   display: none;
   position: absolute;
+  
+}
+.card:hover {
+  transition-delay:  2s;
 }
 
 .card:hover .back {
   display: inline-block;
+
 }
 
 .front, .back {
