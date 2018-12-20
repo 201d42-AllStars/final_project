@@ -1,0 +1,165 @@
+body {
+  background-color: #343434;
+  text-align: center;
+}
+
+h1 {
+  color: #efefef;
+  font-size: 80px;
+  text-align: center;
+  margin: 20px 0 25px;
+  font-family: 'Nanum Gothic', 'Play', sans-serif;
+}
+
+#colon {
+  font-size: 60px;
+}
+
+#logo-k {
+  font-size: 65px;
+  /* background: -webkit-linear-gradient(#00eea8,#ff85fb ); */
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+h2 {
+  font-size: 25px;
+  font-family: 'Play', sans-serif;
+}
+
+#color1, #color2 {
+  /* border: 6px solid rgb(192, 171, 75); */
+  border-radius: 3px;
+  margin: 0;  
+}
+
+.steps {
+  color: #efefef;
+  display: inline-block;
+  padding-left: 15px;
+  padding-right: 15px;
+  /* margin-right: 20px; */
+  padding-top: 10px;
+  height: 200px;
+  width: 260px;
+  /* border: 2px dotted green; */
+  vertical-align: middle;
+}
+
+#segments {
+  margin-left: 20px;
+  margin-right: 20px;
+  width: 220px;
+}
+
+ul li {
+  list-style: none;
+  color: white;
+}
+
+p {
+  color: #cdcdcd;
+  font-family: 'PT Sans', sans-serif;
+  font-size: 18px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#color1 {
+  height: 50px;
+  width: 100px;
+  margin-top: 5px;
+}
+
+#color2 {
+  height: 50px;
+  width: 100px;
+  margin-top: 5px;
+}
+
+#color1:hover, #color2:hover {
+  /* box-sizing: border-box;
+  border: 1px solid gold; */
+  box-shadow: #cdcdcd;
+}
+
+#segmentcount {
+  margin-top: 30px;
+  height: 40px;
+  width: 55px;
+  font-size: 25px;
+  padding-left: 15px;
+}
+
+button {
+  margin-top: 20px;
+  padding: 5px 15px;
+  background-color: #dedede;
+  font-size: 20px;
+  font-family: 'Nanum Gothic', 'Play', sans-serif;
+  border: none;
+  border-radius: 4px;
+}
+
+button:hover {
+  background-color: #ffffff;
+}
+
+button:active {
+  background-color: #565656;
+  color: #dedede;
+}
+
+#user-section {
+  margin: 0 auto;
+  width: 80%;
+}
+
+#previous-section > section {
+  margin: 55px auto 100px;
+  width: 80%;
+  
+}
+
+.colors {
+  display: inline-block;
+  height: 150px;
+  width: 100%;
+}
+
+span {
+  display: inline-block;
+}
+
+.hex-codes {
+  display: inline-block;
+  height: 90px;
+  width: 100%;
+}
+
+.rotate-text {
+  display: inline-block;
+  font-family: 'Play', sans-serif;
+  color: #cdcdcd;
+  margin-top: 30px;
+  transform: rotate(90deg);
+}
+
+#chart-link {
+  display: block;
+  margin-top: 20px;
+  font-family: 'Play', sans-serif;
+  color: #efefef;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+#chart-container {
+  margin: 80px auto 100px;
+  position: relative;
+  display: inline-block;
+  width: 85%;
+}
+
+
