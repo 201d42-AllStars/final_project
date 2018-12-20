@@ -86,34 +86,33 @@ button:hover {
   background-color: plum;
 }
 
-.table-frame {
-  display: inline-block;
-  width: 75%;
-  /* border: 6px solid rgb(192, 171, 75); */
-  border-radius: 6px;
+#user-section {
+  margin: 0 auto;
+  width: 80%;
 }
 
-table {
-  /* table-layout: fixed; */
+.colors {
   display: inline-block;
-  width: 100%;
-}
-
-tr {
   height: 150px;
   width: 100%;
 }
 
-tr:last-child {
-  height: 90px;
+.colors span {
+  display: inline-block;
 }
 
-td {
-  /* position: relative; */
-  padding: 0;
-  margin: 0;
-  width: 1%;
-  min-width: 1%;
+.hex-codes {
+  display: inline-block;
+  height: 90px;
+  width: 100%;
+}
+
+.rotate-text {
+  display: inline-block;
+  font-family: 'Play', sans-serif;
+  color: #cdcdcd;
+  margin-top: 30px;
+  transform: rotate(90deg);
 }
 
 #chart-link {
@@ -126,18 +125,10 @@ td {
 }
 
 #chart-container {
-  margin: 80px auto 0px;
+  margin: 80px auto 120px;
   position: relative;
   display: inline-block;
-  width: 80%;
+  width: 85%;
 }
 
-div {
-  /* float: left; */
-  transform: rotate(90deg);
-  margin-top: 38px;
-  font-size: 16px;
-  font-family: 'Play', sans-serif;
-  color: #cdcdcd;
-}
 
