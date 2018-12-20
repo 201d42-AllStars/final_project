@@ -25,8 +25,8 @@ Gradient.greenHexArray = [];
 Gradient.blueHexArray = [];
 Gradient.userArrayHex = [];
 
-if(! savedArrays) {
-  var savedArrays = [];
+if(! Gradient.savedArrays) {
+  Gradient.savedArrays = [];
 }
 
 Gradient.sectionGradient = JSON.parse( localStorage.getItem('userColorSelection') );
@@ -360,18 +360,18 @@ function onKeyPress(event) {
 // saved in local storage.
 
 if(localStorage.userColorSelection) {
-  savedArrays = Gradient.sectionGradient;
+  Gradient.savedArrays = Gradient.sectionGradient;
 }
 
 
 function saveColorSelection(event) {
   event.preventDefault();
 
-  // Add the user color selection into the savedArrays array.
-  savedArrays.push(Gradient.userArrayHex);
+  // Add the user color selection into the Gradient.savedArrays array.
+  Gradient.savedArrays.push(Gradient.userArrayHex);
 
   // Saves the user color selection to local storage.
-  localStorage.setItem('userColorSelection', JSON.stringify(savedArrays));
+  localStorage.setItem('userColorSelection', JSON.stringify(Gradient.savedArrays));
 }
 
 Gradient.left.addEventListener('input', updateLeft);
