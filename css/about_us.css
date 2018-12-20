@@ -19,7 +19,6 @@ h1 {
 
 #logo-k {
   font-size: 65px;
-  /* background: -webkit-linear-gradient(#00eea8,#ff85fb ); */
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -112,7 +111,10 @@ p {
 
 a {
   color: blue;
-  margin: 0 5px;
+}
+
+#little {
+  margin: 0 3px;
 }
 
 div {
