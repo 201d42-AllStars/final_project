@@ -5,33 +5,25 @@ Gradient.chart = document.getElementById('gradient-chart');
 Gradient.left = document.getElementById('color1');
 Gradient.right = document.getElementById('color2');
 Gradient.segments = document.getElementById('segmentcount');
-// Gradient.table = document.getElementById('gradient-table');
 Gradient.currentRow = document.getElementById('current-gradient-row');
 Gradient.form = document.getElementById('color-input-form');
 Gradient.previousResultsForm = document.getElementById('previous-results-form');
 Gradient.button = document.getElementById('save-button');
 Gradient.userSection = document.getElementById('user-section');
 Gradient.k = document.getElementById('logo-k');
-
-
 Gradient.data = [];
-
-
 Gradient.bothColors = [];
-
 Gradient.differenceArray = [];
-
 Gradient.incrementArray = [];
-
 Gradient.redArrayRGB = [];
 Gradient.greenArrayRGB = [];
 Gradient.blueArrayRGB = [];
 Gradient.userArrayRGB = [];
 
-var redArrayHex = [];
-var greenArrayHex = [];
-var blueArrayHex = [];
-var userArrayHex = [];
+Gradient.redHexArray = [];
+Gradient.greenHexArray = [];
+Gradient.blueHexArray = [];
+Gradient.userArrayHex = [];
 
 if(! savedArrays) {
   var savedArrays = [];
@@ -216,42 +208,42 @@ generateUserArrayRGB();
 // convert RGB back to Hex
 
 function convertToHex() {
-  redArrayHex = [];
+  Gradient.redHexArray = [];
   for (var i = 0; i < Gradient.redArrayRGB.length; i++) {
     var RGB = Gradient.redArrayRGB[i];
     var one = Math.floor( RGB / 16 );
     var two = RGB % 16;
     var hex = `${Gradient.hexNumberArray[one]}${Gradient.hexNumberArray[two]}`;
-    redArrayHex.push(hex);
+    Gradient.redHexArray.push(hex);
   }
-  greenArrayHex = [];
+  Gradient.greenHexArray = [];
   for (i = 0; i < Gradient.greenArrayRGB.length; i++) {
     RGB = Gradient.greenArrayRGB[i];
     one = Math.floor( RGB / 16 );
     two = RGB % 16;
     hex = `${Gradient.hexNumberArray[one]}${Gradient.hexNumberArray[two]}`;
-    greenArrayHex.push(hex);
+    Gradient.greenHexArray.push(hex);
   }
-  blueArrayHex = [];
+  Gradient.blueHexArray = [];
   for (i = 0; i < Gradient.blueArrayRGB.length; i++) {
     RGB = Gradient.blueArrayRGB[i];
     one = Math.floor( RGB / 16 );
     two = RGB % 16;
     hex = `${Gradient.hexNumberArray[one]}${Gradient.hexNumberArray[two]}`;
-    blueArrayHex.push(hex);
+    Gradient.blueHexArray.push(hex);
   }
-  userArrayHex = [];
+  Gradient.userArrayHex = [];
   for (i = 0; i < Gradient.userArrayRGB.length; i++) {
-    var hexRed = redArrayHex[i];
-    var hexGreen = greenArrayHex[i];
-    var hexBlue = blueArrayHex[i];
-    userArrayHex.push(`#${hexRed}${hexGreen}${hexBlue}`);
+    var hexRed = Gradient.redHexArray[i];
+    var hexGreen = Gradient.greenHexArray[i];
+    var hexBlue = Gradient.blueHexArray[i];
+    Gradient.userArrayHex.push(`#${hexRed}${hexGreen}${hexBlue}`);
   }
 }
 
 convertToHex();
 
-// generate random number
+// generate random number to use when producing the sample chart data
 
 function randomNum() {
   var random = Math.random() * (25 - 5) + 5;
@@ -263,14 +255,14 @@ function randomNum() {
 
 function randomData() {
   Gradient.data = [];
-  for (var i = 0; i < userArrayHex.length; i++) {
+  for (var i = 0; i < Gradient.userArrayHex.length; i++) {
     Gradient.data.push(randomNum());
   }
 }
 
 randomData();
 
-// function to get and create spans for section
+// function to get and create spans for user section
 
 function generateUserSection() {
   Gradient.userSection.innerHTML = '';
@@ -281,20 +273,20 @@ function generateUserSection() {
   var hexCodes = document.createElement('section');
   hexCodes.className = 'hex-codes';
 
-  for (var i = 0; i < userArrayHex.length; i++) {
+  for (var i = 0; i < Gradient.userArrayHex.length; i++) {
     var color = document.createElement('span');
-    var percent = 100 / userArrayHex.length;
+    var percent = 100 / Gradient.userArrayHex.length;
     var string = `${percent}%`;
 
     color.style.width = string;
     color.style.height = '150px';
-    color.style.backgroundColor = userArrayHex[i];
+    color.style.backgroundColor = Gradient.userArrayHex[i];
     colors.appendChild(color);
-    
+
     var hex = document.createElement('span');
     hex.className = 'rotate-text';
     hex.style.width = string;
-    hex.textContent = userArrayHex[i];
+    hex.textContent = Gradient.userArrayHex[i];
     hexCodes.appendChild(hex);
   }
   Gradient.userSection.appendChild(colors);
@@ -303,43 +295,7 @@ function generateUserSection() {
 
 generateUserSection();
 
-
-
-// function generateTable() {
-//   Gradient.table.deleteRow(0);
-
-//   if(Gradient.table.childElementCount - 1) {
-//     Gradient.table.deleteRow(0);
-//   }
-
-//   var trEl = document.createElement('tr');
-//   var tr2El = document.createElement('tr');
-
-//   for (var i = 0; i < userArrayHex.length; i++) {
-//     var tdEl = document.createElement('td');
-//     var divEl = document.createElement('div');
-//     // divEl.textContent = userArrayHex[i];
-//     // tdEl.appendChild(divEl);
-//     tdEl.style.backgroundColor = userArrayHex[i];
-//     tdEl.appendChild(divEl);
-//     trEl.appendChild(tdEl);
-
-//     // Place the hex values beneath the table so it is under the color segments.
-//     // Add another row to contain the hex value for each data element.  This will be contained
-//     // in a div element.  
-//     tdEl = document.createElement('td');
-//     divEl = document.createElement('div');
-//     var hexValue = userArrayHex[i];
-//     divEl.textContent = hexValue;
-//     tdEl.appendChild(divEl);
-//     tr2El.appendChild(tdEl);
-//   }
-//   Gradient.table.appendChild(trEl);
-//   Gradient.table.appendChild(tr2El);
-// }
-
-// generateTable();
-
+// update functions for use on event listeners
 
 function updateLeft() {
   var newLeft = convertToRGB(Gradient.left.value);
@@ -392,6 +348,7 @@ function updateSegments() {
 }
 
 // This function prevents the information on the page from being refreshed.
+
 function onKeyPress(event) {
   switch (event.keyCode) {
   case 13:
@@ -403,6 +360,7 @@ function onKeyPress(event) {
 
 // Need to updte the saved arrays to contain what is in local storage if there is any color sections
 // saved in local storage.
+
 if(localStorage.userColorSelection) {
   savedArrays = Gradient.sectionGradient;
 }
@@ -412,7 +370,7 @@ function saveColorSelection(event) {
   event.preventDefault();
 
   // Add the user color selection into the savedArrays array.
-  savedArrays.push(userArrayHex);
+  savedArrays.push(Gradient.userArrayHex);
 
   // Saves the user color selection to local storage.
   localStorage.setItem('userColorSelection', JSON.stringify(savedArrays));
@@ -437,11 +395,11 @@ function displayChart() {
   Gradient.displayChart = new Chart(Gradient.chart, {
     type: 'bar',
     data: {
-      labels: userArrayHex,
+      labels: Gradient.userArrayHex,
       datasets: [{
         label: '',
         data: Gradient.data,
-        backgroundColor: userArrayHex,
+        backgroundColor: Gradient.userArrayHex,
       }],
     },
     options: {
