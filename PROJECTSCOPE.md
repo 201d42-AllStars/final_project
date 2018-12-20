@@ -1,4 +1,4 @@
-*MVP
+#MVP
 
 The MVP of this app is to perform hexadecimal calculations with two color values.  There will be a starting hex value and an ending point hex value.  The output of the calculation will be the color segments in hex values displayed in a linear background color divided into the number of segments that the user specifies.
 
@@ -11,7 +11,7 @@ This project will have at least two pages that accept and process user input. (O
 This project will implement a state that persists between page reloads.  The next time the user returns to the app, local storage will contain the gradient colors from the previous session.
 This project will be deployed live on the Internet via GitHub Pages.
 
-**Stretch Goals
+##Stretch Goals
 
 On the About Us page, include animation on the picture cards that reflects our favorite color gradient.
 
