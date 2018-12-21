@@ -51,7 +51,7 @@ function generateSavedSection() {
       section.prepend(container);
     }
   } else {
-    section.textContent = 'NOTHING SAVED YET';
+    section.textContent = 'NOTHING HAS BEEN SAVED YET';
   }
 }
 

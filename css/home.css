@@ -163,6 +163,13 @@ button:active {
   opacity: 1;
 }
 
+#previous-section {
+color: #cdcdcd;
+font-family: 'Play', sans-serif;
+font-size: 28px;
+margin: 25px;
+}
+
 #previous-section > section {
   margin: 55px auto 100px;
   width: 80%;
@@ -188,6 +195,7 @@ span {
   color: #cdcdcd;
   display: inline-block;
   font-family: 'Play', sans-serif;
+  font-size: 16px;
   margin-top: 30px;
   transform: rotate(90deg);
 }
