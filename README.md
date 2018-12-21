@@ -1,6 +1,8 @@
 _Project Name:_**	re:spekt
 
+
 _Team Members:_**	Jasmin Arensdorf, Chris Ball, Paul Williamsen
+
 
 _Project Description:_** Create an application where a user can choose a starting color from a hex color spectrum and an ending color from the hex spectrum, and enter a number of segments to generate. This app will generate color gradient can be displayed where the display is divided into the number of segments.
 
