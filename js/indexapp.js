@@ -356,7 +356,7 @@ function onKeyPress(event) {
   }
 }
 
-// Need to updte the saved arrays to contain what is in local storage if there is any color sections
+// Need to update the saved arrays to contain what is in local storage if there is any color sections
 // saved in local storage.
 
 if(localStorage.userColorSelection) {
