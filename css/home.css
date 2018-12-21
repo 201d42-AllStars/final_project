@@ -5,10 +5,10 @@ body {
 
 h1 {
   color: #efefef;
-  font-size: 80px;
-  text-align: center;
-  margin: 20px 0 25px;
   font-family: 'Nanum Gothic', 'Play', sans-serif;
+  font-size: 80px;
+  margin: 20px 0 25px;
+  text-align: center;
 }
 
 #colon {
@@ -16,15 +16,15 @@ h1 {
 }
 
 #logo-k {
+  background-clip: text;
   font-size: 65px;
   -webkit-background-clip: text;
-  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 h2 {
-  font-size: 25px;
   font-family: 'Play', sans-serif;
+  font-size: 25px;
 }
 
 #color1, #color2 {
@@ -35,12 +35,12 @@ h2 {
 .steps {
   color: #efefef;
   display: inline-block;
+  height: 180px;
   padding-left: 15px;
   padding-right: 15px;
   padding-top: 10px;
-  height: 200px;
-  width: 260px;
   vertical-align: middle;
+  width: 260px;
 }
 
 #segments {
@@ -50,8 +50,8 @@ h2 {
 }
 
 ul li {
-  list-style: none;
   color: white;
+  list-style: none;
 }
 
 p {
@@ -64,36 +64,36 @@ p {
 
 #color1 {
   height: 50px;
-  width: 100px;
   margin-top: 5px;
+  width: 100px;
 }
 
 #color2 {
   height: 50px;
-  width: 100px;
   margin-top: 5px;
-}
-
-#color1:hover, #color2:hover {
-  box-shadow: #cdcdcd;
+  width: 100px;
 }
 
 #segmentcount {
-  margin-top: 30px;
-  height: 40px;
-  width: 55px;
   font-size: 25px;
+  height: 40px;
+  margin-top: 30px;
   padding-left: 15px;
+  width: 55px;
+}
+
+#tooltip-relative {
+  position: relative;
 }
 
 button {
-  margin-top: 20px;
-  padding: 5px 15px;
   background-color: #dedede;
-  font-size: 20px;
-  font-family: 'Nanum Gothic', 'Play', sans-serif;
   border: none;
   border-radius: 4px;
+  font-family: 'Nanum Gothic', 'Play', sans-serif;
+  font-size: 20px;
+  margin-top: 20px;
+  padding: 5px 15px;
 }
 
 button:hover {
@@ -106,85 +106,66 @@ button:active {
 }
 
 #save-button {
-  position: relative;
   display: inline-block;
+  position: relative;
 }
 
-#save-button #save-tooltip {
-  opacity: 0;
-  font-family: 'Nanum Gothic', 'Play', sans-serif;
-  font-size: 14px;
+#save-button + #save-tooltip {
   background-color: #565656;
   border-radius: 6px;
   color: #ffffff;
-  width: 320px;
-  padding: 6px;
+  font-family: 'Nanum Gothic', 'Play', sans-serif;
+  font-size: 14px;
+  left: 53%;
+  line-height: 1.2;
   margin-left: 10px;
+  opacity: 0;
+  padding: 6px;
   position: absolute;
-  top: -5px;
-  left: 105%;
-  z-index: 1;
+  top: 15px;
   transition: 1s all;
+  width: 320px;
+  z-index: 1;
 }
 
-#save-button:hover #save-tooltip {
+#save-button:hover + #save-tooltip {
   opacity: 1;
 }
 
-#save-button #save-tooltip::after {
-  content: " ";
-  position: absolute;
-  top: 50%;
-  right: 100%;
-  margin-top: -5px;
-  border-width: 5px;
-  border-style: solid;
+#save-button + #save-tooltip::after {
   border-color: #565656 #565656 transparent transparent;
+  border-style: solid;
+  border-width: 5px;
+  content: " ";
+  margin-top: -5px;
+  position: absolute;
+  right: 100%;
+  top: 50%;
 }
 
 #user-section {
-  position: relative;
   margin: 0 auto;
   width: 80%;
 }
 
-#user-section + #user-section-tooltip {
-  opacity: 0;
-  font-family: 'Nanum Gothic', 'Play', sans-serif;
-  font-size: 14px;
+.copy-array {
   background-color: #565656;
-  border-radius: 6px;
-  color: #ffffff;
-  width: 7%;
-  padding: 6px;
-  margin-left: 10px;
-  position: absolute;
-  top: 55%;
-  left: 90%;
-  z-index: 1;
-  transition: 1s all;
-  line-height: 1.2;
+  border-radius: 3px;
+  color: #565656;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: .35vw;
+  margin-bottom: 3px;
+  opacity: 0;
+  padding: 10px 0;
 }
 
-#user-section:hover + #user-section-tooltip {
+#user-section:active .copy-array {
   opacity: 1;
-}
-
-#user-section + #user-section-tooltip::after {
-  content: " ";
-  position: absolute;
-  top: 50%;
-  right: 100%;
-  margin-top: -5px;
-  border-width: 5px;
-  border-style: solid;
-  border-color: #565656 #565656 transparent transparent;
 }
 
 #previous-section > section {
   margin: 55px auto 100px;
   width: 80%;
-  
 }
 
 .colors {
@@ -204,20 +185,20 @@ span {
 }
 
 .rotate-text {
+  color: #cdcdcd;
   display: inline-block;
   font-family: 'Play', sans-serif;
-  color: #cdcdcd;
   margin-top: 30px;
   transform: rotate(90deg);
 }
 
 #chart-link {
-  display: inline-block;
-  margin-top: 20px;
-  font-family: 'Play', sans-serif;
   color: #efefef;
-  text-decoration: none;
+  display: inline-block;
+  font-family: 'Play', sans-serif;
   font-size: 20px;
+  margin-top: 20px;
+  text-decoration: none;
 }
 
 #chart-link:hover {
@@ -225,14 +206,26 @@ span {
 }
 
 #chart-container {
+  display: inline-block;
   margin: 80px auto 100px;
   position: relative;
-  display: inline-block;
   width: 85%;
 }
 
-.example-charts {
+#chart1 {
   display: inline-block;
-  margin-bottom: 30px;
- }
+  margin: 30px 0 50px;
+  width: 70%;
+}
 
+#chart2{
+  display: inline-block;
+  margin: 50px 0;
+  width: 80%;
+}
+
+#chart3 {
+  display: inline-block;
+  margin: 75px 0;
+  width: 100%;
+}

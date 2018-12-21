@@ -10,6 +10,7 @@ Gradient.form = document.getElementById('color-input-form');
 Gradient.previousResultsForm = document.getElementById('previous-results-form');
 Gradient.button = document.getElementById('save-button');
 Gradient.userSection = document.getElementById('user-section');
+Gradient.userSectionTooltip = document.getElementById('user-section-tooltip');
 Gradient.k = document.getElementById('logo-k');
 Gradient.chartLink = document.getElementById('chart-link');
 Gradient.data = [];
@@ -274,27 +275,44 @@ function generateUserSection() {
   var hexCodes = document.createElement('section');
   hexCodes.className = 'hex-codes';
 
+  var copyArray = document.createElement('section');
+  copyArray.className = 'copy-array';
+  var copyValues = [];
+  
   for (var i = 0; i < Gradient.userArrayHex.length; i++) {
     var color = document.createElement('span');
     var percent = 100 / Gradient.userArrayHex.length;
     var string = `${percent}%`;
-
+    
     color.style.width = string;
     color.style.height = '150px';
     color.style.backgroundColor = Gradient.userArrayHex[i];
     colors.appendChild(color);
-
+    
     var hex = document.createElement('span');
     hex.className = 'rotate-text';
     hex.style.width = string;
     hex.textContent = Gradient.userArrayHex[i];
     hexCodes.appendChild(hex);
+
+    copyValues.push(`"${Gradient.userArrayHex[i]}"`);
   }
+  copyArray.textContent = copyValues;
+  Gradient.userSection.appendChild(copyArray);
   Gradient.userSection.appendChild(colors);
   Gradient.userSection.appendChild(hexCodes);
 }
 
 generateUserSection();
+
+// fill userSection tooltip with hex array
+
+// function userSectionTooltip() {
+//   Gradient.userSectionTooltip.textContent = Gradient.userArrayHex;
+// }
+
+// userSectionTooltip();
+
 
 // update functions for use on event listeners
 
