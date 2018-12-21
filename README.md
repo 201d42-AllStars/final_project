@@ -1,7 +1,5 @@
 Project Name:		re:spekt
 
-[a link](respekt.us)
-
 Team Members:	  Jasmin Arensdorf
                 Chris Ball
                 Paul Williamsen
