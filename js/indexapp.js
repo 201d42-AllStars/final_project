@@ -12,7 +12,6 @@ Gradient.button = document.getElementById('save-button');
 Gradient.userSection = document.getElementById('user-section');
 Gradient.k = document.getElementById('logo-k');
 Gradient.chartLink = document.getElementById('chart-link');
-// Gradient.saveTooltip = document.getElementById('save-tooltip');
 Gradient.data = [];
 Gradient.bothColors = [];
 Gradient.differenceArray = [];
@@ -430,5 +429,3 @@ function displayChart() {
 
 Gradient.chartLink.addEventListener('click', displayChart);
 
-// AColorPicker.from('div.picker')
-//   .on(change, picker);

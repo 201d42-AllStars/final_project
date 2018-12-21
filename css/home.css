@@ -17,7 +17,6 @@ h1 {
 
 #logo-k {
   font-size: 65px;
-  /* background: -webkit-linear-gradient(#00eea8,#ff85fb ); */
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -29,7 +28,6 @@ h2 {
 }
 
 #color1, #color2 {
-  /* border: 6px solid rgb(192, 171, 75); */
   border-radius: 3px;
   margin: 0;  
 }
@@ -39,11 +37,9 @@ h2 {
   display: inline-block;
   padding-left: 15px;
   padding-right: 15px;
-  /* margin-right: 20px; */
   padding-top: 10px;
   height: 200px;
   width: 260px;
-  /* border: 2px dotted green; */
   vertical-align: middle;
 }
 
@@ -79,8 +75,6 @@ p {
 }
 
 #color1:hover, #color2:hover {
-  /* box-sizing: border-box;
-  border: 1px solid gold; */
   box-shadow: #cdcdcd;
 }
 
