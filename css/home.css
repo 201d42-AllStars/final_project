@@ -117,7 +117,7 @@ button:active {
 }
 
 #save-button #save-tooltip {
-  visibility: hidden;
+  opacity: 0;
   font-family: 'Nanum Gothic', 'Play', sans-serif;
   font-size: 14px;
   background-color: #565656;
@@ -130,6 +130,11 @@ button:active {
   top: -5px;
   left: 105%;
   z-index: 1;
+  transition: 1s all;
+}
+
+#save-button:hover #save-tooltip {
+  opacity: 1;
 }
 
 #save-button #save-tooltip::after {
@@ -143,13 +148,43 @@ button:active {
   border-color: #565656 #565656 transparent transparent;
 }
 
-#save-button:hover #save-tooltip {
-  visibility: visible;
-}
-
 #user-section {
+  position: relative;
   margin: 0 auto;
   width: 80%;
+}
+
+#user-section + #user-section-tooltip {
+  opacity: 0;
+  font-family: 'Nanum Gothic', 'Play', sans-serif;
+  font-size: 14px;
+  background-color: #565656;
+  border-radius: 6px;
+  color: #ffffff;
+  width: 7%;
+  padding: 6px;
+  margin-left: 10px;
+  position: absolute;
+  top: 55%;
+  left: 90%;
+  z-index: 1;
+  transition: 1s all;
+  line-height: 1.2;
+}
+
+#user-section:hover + #user-section-tooltip {
+  opacity: 1;
+}
+
+#user-section + #user-section-tooltip::after {
+  content: " ";
+  position: absolute;
+  top: 50%;
+  right: 100%;
+  margin-top: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #565656 #565656 transparent transparent;
 }
 
 #previous-section > section {
@@ -183,7 +218,7 @@ span {
 }
 
 #chart-link {
-  display: block;
+  display: inline-block;
   margin-top: 20px;
   font-family: 'Play', sans-serif;
   color: #efefef;
@@ -201,5 +236,10 @@ span {
   display: inline-block;
   width: 85%;
 }
+
+.example-charts {
+  display: inline-block;
+  margin-bottom: 30px;
+ }
 
 
