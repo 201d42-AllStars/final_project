@@ -1,33 +1,30 @@
 
 #menu {
+  font-size: 16pt;
   list-style-type:none;
-  text-align: center;
-  font-size: 14pt;
-  position: relative;
   margin-bottom: 15px;
+  position: relative;
+  text-align: center;
 }
 
 li {
   display:inline;
+  font-family: 'Play', sans-serif;
   padding-left: 10px;
   padding-right: 10px;
-  font-family: 'Play', sans-serif;
-  
 }
 
 li :hover {
   color: #00eea8;
-
 }
+
 ul {
   background-color: #474545;  
-
 }
 
-
 li a {
-  text-align: center;
-  line-height: 50px;
   color: white;
+  line-height: 50px;
+  text-align: center;
   text-decoration: none;
 }

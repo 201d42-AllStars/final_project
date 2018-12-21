@@ -27,7 +27,7 @@
       <form id="color-input-form">
         <fieldset>
           <section class="steps">
-            <h2>Step 1:</h2>
+            <h2>Starting Color</h2>
             <p>Click the box below and select a color from the color picker window for your starting color</p>
 
             <label for="color1"></label>
@@ -35,7 +35,7 @@
           </section>
 
           <section id="segments" class="steps">
-            <h2>Step 2:</h2>
+            <h2># Segments</h2>
             <p>Enter the number of segments you want</p> 
           
             <label for="segmentcount"></label>
@@ -43,7 +43,7 @@
           </section>
 
           <section class="steps">
-            <h2>Step 3:</h2>
+            <h2>Ending Color</h2>
             <p>Click the box below and select a color from the color picker window for your ending color</p>
 
             <label for="color2"></label>
@@ -54,20 +54,21 @@
       </form>
     </section>
 
-    <section id="user-section">
-      
-    </section>
+    <section id="user-section"></section>
 
-    <section>
+    <section id="tooltip-relative">
       <button id="save-button">save</button>
+      <span id="save-tooltip">Click here to save this array for later use.<br>You can access it any time on the 'Saved' page.</span>
+ 
     </section>
 
-    <a id="chart-link" href="#gradient-chart"><span>sample bar chart</span></a>
+    <a id="chart-link" href="#gradient-chart"><span>show me a sample bar chart</span></a>
 
     <section id="chart-container">
       <canvas id="gradient-chart"></canvas>
     </section>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
     <script src="js/indexapp.js"></script>
+
   </body>
 </html>
