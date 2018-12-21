@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>re:spekt</title>
-    <link id="flavicon" rel="shortcut icon" href="../images/re-spekt_favicon.png">
+    <link id="flavicon" rel="shortcut icon" href="../images/littleicon.png">
     <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic|Play" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
     <link rel="stylesheet" href="../css/reset.css">
@@ -24,10 +24,19 @@
       </section>   
     </header>
 
-    <section>
-
+    <section id="chart1">
+      <canvas id="gradient-chart" class="example-charts"></canvas>
     </section>
-    <script src="../js/otherapp.js"></script>
+    <section id="chart3">
+      <canvas id="gradient-chart3" class="example-charts"></canvas>
+    </section>
+    <section id="chart2">
+      <canvas id="gradient-chart2" class="example-charts"></canvas>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+    <script src="../js/examplesapp.js"></script>
+
   </body>
 
 </html>

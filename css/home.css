@@ -5,10 +5,10 @@ body {
 
 h1 {
   color: #efefef;
-  font-size: 80px;
-  text-align: center;
-  margin: 20px 0 25px;
   font-family: 'Nanum Gothic', 'Play', sans-serif;
+  font-size: 80px;
+  margin: 20px 0 25px;
+  text-align: center;
 }
 
 #colon {
@@ -16,20 +16,18 @@ h1 {
 }
 
 #logo-k {
-  font-size: 65px;
-  /* background: -webkit-linear-gradient(#00eea8,#ff85fb ); */
-  -webkit-background-clip: text;
   background-clip: text;
+  font-size: 65px;
+  -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 h2 {
-  font-size: 25px;
   font-family: 'Play', sans-serif;
+  font-size: 25px;
 }
 
 #color1, #color2 {
-  /* border: 6px solid rgb(192, 171, 75); */
   border-radius: 3px;
   margin: 0;  
 }
@@ -37,14 +35,12 @@ h2 {
 .steps {
   color: #efefef;
   display: inline-block;
+  height: 180px;
   padding-left: 15px;
   padding-right: 15px;
-  /* margin-right: 20px; */
   padding-top: 10px;
-  height: 200px;
-  width: 260px;
-  /* border: 2px dotted green; */
   vertical-align: middle;
+  width: 260px;
 }
 
 #segments {
@@ -54,8 +50,8 @@ h2 {
 }
 
 ul li {
-  list-style: none;
   color: white;
+  list-style: none;
 }
 
 p {
@@ -68,38 +64,36 @@ p {
 
 #color1 {
   height: 50px;
-  width: 100px;
   margin-top: 5px;
+  width: 100px;
 }
 
 #color2 {
   height: 50px;
-  width: 100px;
   margin-top: 5px;
-}
-
-#color1:hover, #color2:hover {
-  /* box-sizing: border-box;
-  border: 1px solid gold; */
-  box-shadow: #cdcdcd;
+  width: 100px;
 }
 
 #segmentcount {
-  margin-top: 30px;
-  height: 40px;
-  width: 55px;
   font-size: 25px;
+  height: 40px;
+  margin-top: 30px;
   padding-left: 15px;
+  width: 55px;
+}
+
+#tooltip-relative {
+  position: relative;
 }
 
 button {
-  margin-top: 20px;
-  padding: 5px 15px;
   background-color: #dedede;
-  font-size: 20px;
-  font-family: 'Nanum Gothic', 'Play', sans-serif;
   border: none;
   border-radius: 4px;
+  font-family: 'Nanum Gothic', 'Play', sans-serif;
+  font-size: 20px;
+  margin-top: 20px;
+  padding: 5px 15px;
 }
 
 button:hover {
@@ -111,15 +105,74 @@ button:active {
   color: #dedede;
 }
 
+#save-button {
+  display: inline-block;
+  position: relative;
+}
+
+#save-button + #save-tooltip {
+  background-color: #565656;
+  border-radius: 6px;
+  color: #ffffff;
+  font-family: 'Nanum Gothic', 'Play', sans-serif;
+  font-size: 14px;
+  left: 53%;
+  line-height: 1.2;
+  margin-left: 10px;
+  opacity: 0;
+  padding: 6px;
+  position: absolute;
+  top: 15px;
+  transition: 1s all;
+  width: 320px;
+  z-index: 1;
+}
+
+#save-button:hover + #save-tooltip {
+  opacity: 1;
+}
+
+#save-button + #save-tooltip::after {
+  border-color: #565656 #565656 transparent transparent;
+  border-style: solid;
+  border-width: 5px;
+  content: " ";
+  margin-top: -5px;
+  position: absolute;
+  right: 100%;
+  top: 50%;
+}
+
 #user-section {
   margin: 0 auto;
   width: 80%;
 }
 
+.copy-array {
+  background-color: #565656;
+  border-radius: 3px;
+  color: #565656;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: .35vw;
+  margin-bottom: 3px;
+  opacity: 0;
+  padding: 10px 0;
+}
+
+#user-section:active .copy-array {
+  opacity: 1;
+}
+
+#previous-section {
+color: #cdcdcd;
+font-family: 'Play', sans-serif;
+font-size: 28px;
+margin: 25px;
+}
+
 #previous-section > section {
   margin: 55px auto 100px;
   width: 80%;
-  
 }
 
 .colors {
@@ -139,27 +192,48 @@ span {
 }
 
 .rotate-text {
+  color: #cdcdcd;
   display: inline-block;
   font-family: 'Play', sans-serif;
-  color: #cdcdcd;
+  font-size: 16px;
   margin-top: 30px;
   transform: rotate(90deg);
 }
 
 #chart-link {
-  display: block;
-  margin-top: 20px;
-  font-family: 'Play', sans-serif;
   color: #efefef;
-  text-decoration: none;
+  display: inline-block;
+  font-family: 'Play', sans-serif;
   font-size: 20px;
+  margin-top: 20px;
+  text-decoration: none;
+}
+
+#chart-link:hover {
+  color: #00eea8;
 }
 
 #chart-container {
+  display: inline-block;
   margin: 80px auto 100px;
   position: relative;
-  display: inline-block;
   width: 85%;
 }
 
+#chart1 {
+  display: inline-block;
+  margin: 30px 0 50px;
+  width: 70%;
+}
 
+#chart2{
+  display: inline-block;
+  margin: 50px 0;
+  width: 80%;
+}
+
+#chart3 {
+  display: inline-block;
+  margin: 75px 0;
+  width: 100%;
+}
