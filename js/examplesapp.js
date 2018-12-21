@@ -44,9 +44,9 @@ randomData();
 
 // create chart for user input
 
-function displayChart() {
+function displayExampleCharts() {
 
-  displayChart = new Chart(chart, {
+  new Chart(chart, {
     type: 'doughnut',
     data: {
       labels: hexArray,
@@ -82,7 +82,7 @@ function displayChart() {
     }
   });
 
-  displayChart = new Chart(chart2, {
+  new Chart(chart2, {
     type: 'bar',
     data: {
       labels: hexArray,
@@ -118,7 +118,7 @@ function displayChart() {
     }
   });
 
-  displayChart = new Chart(chart3, {
+  new Chart(chart3, {
     type: 'polarArea',
     data: {
       labels: hexArray,
@@ -156,4 +156,4 @@ function displayChart() {
 
 }
 
-displayChart();
+displayExampleCharts();
