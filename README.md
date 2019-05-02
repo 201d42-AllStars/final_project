@@ -1,19 +1,19 @@
-_Project Name:_**	re:spekt
+**_Project Name:_**	re:spekt
 
 
-_Team Members:_**	Jasmin Arensdorf, Chris Ball, Paul Williamsen
+**_Team Members:_**	Jasmin Arensdorf, Chris Ball, Paul Williamsen
 
 
-_Project Description:_** Create an application where a user can choose a starting color from a hex color spectrum and an ending color from the hex spectrum, and enter a number of segments to generate. This app will generate color gradient can be displayed where the display is divided into the number of segments.
+**_Project Description:_** Create an application where a user can choose a starting color from a hex color spectrum and an ending color from the hex spectrum, and enter a number of segments to generate. This app will generate color gradient can be displayed where the display is divided into the number of segments.
 
-_Problem Domain:_**	The problem domain was to find a website that can produce a color gradient.  The user selects a starting hexadecimal color value, an ending hexadecimal color value, and a number of color segments to generate the color gradient.  The hexadecimal color values were needed to label information on a donut shape chart.
+**_Problem Domain:_**	The problem domain was to find a website that can produce a color gradient.  The user selects a starting hexadecimal color value, an ending hexadecimal color value, and a number of color segments to generate the color gradient.  The hexadecimal color values were needed to label information on a donut shape chart.
 
-_Semantic Versioning:_** v1.0.0
+**_Semantic Versioning:_** v1.0.0
 
-_Libraries used:_**	Chart.js and fonts.google.com
+**_Libraries used:_**	Chart.js and fonts.google.com
 
 
-###User Stories:
+### User Stories:
 
 As a user, I want to be able to choose from any color from the hex spectrum as a starting point and any color from the hex spectrum as an ending point, and enter a number of segments to generate, so that a color gradient can be displayed where the display is divided into the number of segments.
 
